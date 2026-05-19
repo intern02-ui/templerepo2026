@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donation History - Shree Dharma Temple</title>
+  <link rel="stylesheet" href="temple.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar">
+      <a class="logo" href="temple.html?id=demo#donation" aria-label="Back to donation page">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img" focusable="false">
+            <defs>
+              <linearGradient id="historyLogoGold" x1="9" y1="9" x2="55" y2="55">
+                <stop offset="0" stop-color="#fff2a8" />
+                <stop offset="0.45" stop-color="#f7b733" />
+                <stop offset="1" stop-color="#d35400" />
+              </linearGradient>
+            </defs>
+            <path d="M32 7 13 20h38L32 7Z" fill="url(#historyLogoGold)" />
+            <path d="M18 23h28v23H18V23Z" fill="none" stroke="url(#historyLogoGold)" stroke-width="4" stroke-linejoin="round" />
+            <path d="M24 46V32h16v14" fill="none" stroke="url(#historyLogoGold)" stroke-width="4" stroke-linecap="round" />
+            <path d="M14 51h36" stroke="url(#historyLogoGold)" stroke-width="4" stroke-linecap="round" />
+          </svg>
+        </span>
+        <span class="logo-copy">
+          <span class="logo-title">Shree Dharma Temple</span>
+          <span class="logo-subtitle">Dharma &amp; Devotion</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="donation-history-page">
+      <div class="history-heading">
+        <h1 class="section-title">Donation History</h1>
+        <a class="btn" href="temple.html?id=demo#donation">Back to Donation</a>
+      </div>
+
+      <div id="allDonationsList" class="recent-donations-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Shree Dharma Temple. All Rights Reserved.</p>
+    <p>Contact: temple@example.com | +91 98765 43210</p>
+  </footer>
+
+  <script>
+    const purposeLabels = {
+      Annadanam: "Annadanam",
+      "Temple Maintenance": "Temple Maintenance",
+      "Festival Seva": "Festival Seva",
+      "General Donation": "General Donation",
+      "Education and Community Seva": "Education and Community Seva"
+    };
+
+    function parseRupees(value) {
+      const number = Number(value);
+      return Number.isFinite(number) ? number : 0;
+    }
+
+    function escapeHTML(value) {
+      return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function formatDonationDate(value) {
+      const date = value ? new Date(value) : new Date();
+      if (Number.isNaN(date.getTime())) return String(value || "");
+      return date.toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+    }
+
+    function renderDonation(donation) {
+      const name = donation.showPublicName ? donation.name || "Anonymous Donor" : "Anonymous Donor";
+      const purpose = purposeLabels[donation.purpose] || donation.purpose || "General Donation";
+      const amount = parseRupees(donation.amount);
+      const message = donation.message
+        ? `<p class="donation-message">${escapeHTML(donation.message)}</p>`
+        : "";
+
+      return `
+        <article class="donation-item">
+          <div>
+            <h4>${escapeHTML(name)}</h4>
+            <p class="donation-meta">${escapeHTML(purpose)}</p>
+            ${message}
+            <p class="donation-date">${escapeHTML(formatDonationDate(donation.date || donation.createdAt))}</p>
+          </div>
+          <div class="donation-amount">₹${Math.floor(amount).toLocaleString("en-IN")}</div>
+        </article>
+      `;
+    }
+
+    const list = document.getElementById("allDonationsList");
+    const donations = JSON.parse(localStorage.getItem("donations") || "[]");
+    const safeDonations = Array.isArray(donations) ? donations : [];
+
+    list.innerHTML = safeDonations.length
+      ? safeDonations.slice().reverse().map(renderDonation).join("")
+      : '<div class="donations-empty">Be the first to contribute 🙏</div>';
+  </script>
+</body>
+</html>

@@ -1,0 +1,698 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shree Dharma Temple</title>
+  <link rel="stylesheet" href="temple.css" />
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="topbar">
+    <a class="logo" href="index.html" aria-label="Go to Temple Explorer Home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" role="img" focusable="false">
+          <defs>
+            <linearGradient id="logoGold" x1="9" y1="9" x2="55" y2="55">
+              <stop offset="0" stop-color="#fff2a8" />
+              <stop offset="0.45" stop-color="#f7b733" />
+              <stop offset="1" stop-color="#d35400" />
+            </linearGradient>
+          </defs>
+          <path d="M32 7 13 20h38L32 7Z" fill="url(#logoGold)" />
+          <path d="M18 23h28v23H18V23Z" fill="none" stroke="url(#logoGold)" stroke-width="4" stroke-linejoin="round" />
+          <path d="M24 46V32h16v14" fill="none" stroke="url(#logoGold)" stroke-width="4" stroke-linecap="round" />
+          <path d="M14 51h36" stroke="url(#logoGold)" stroke-width="4" stroke-linecap="round" />
+          <path d="M32 16v7" stroke="#fff8d7" stroke-width="3" stroke-linecap="round" />
+          <path d="M31 38c5 0 9 2 11 6-3 3-7 4-11 4s-8-1-11-4c2-4 6-6 11-6Z" fill="#fff6c7" opacity="0.92" />
+          <path d="M32 30c4 5 4 8 0 11-4-3-4-6 0-11Z" fill="#ff7a00" />
+        </svg>
+      </span>
+      <span class="logo-copy">
+        <span class="logo-title" data-en="Shree Dharma Temple" data-hi="à¤¶à¥à¤°à¥€ à¤§à¤°à¥à¤® à¤®à¤‚à¤¦à¤¿à¤°">Shree Dharma Temple</span>
+        <span class="logo-subtitle">Dharma &amp; Devotion</span>
+      </span>
+    </a>
+
+    <button id="languageBtn" class="lang-btn" type="button" aria-label="Switch language">
+      <span>Hindi</span>
+      <span aria-hidden="true">/</span>
+      <span>English</span>
+    </button>
+  </div>
+  <nav class="primary-nav" aria-label="Primary navigation">
+    <a class="active" aria-current="page" href="#home" data-en="Home" data-hi="à¤®à¥à¤–à¥à¤¯ à¤ªà¥ƒà¤·à¥à¤ ">Home</a>
+    <a href="#about" data-en="About" data-hi="About">About</a>
+    <a href="#gallery" data-en="Gallery" data-hi="à¤—à¥ˆà¤²à¤°à¥€">Gallery</a>
+    <a href="#traditions" data-en="Traditions" data-hi="Traditions">Traditions</a>
+    <a href="#festivals" data-en="Festivals" data-hi="à¤¤à¥à¤¯à¥‹à¤¹à¤¾à¤°">Festivals</a>
+    <a href="#donation" data-en="Donation" data-hi="à¤¦à¤¾à¤¨">Donation</a>
+    <a href="#seva" data-en="Seva Booking" data-hi="à¤¸à¥‡à¤µà¤¾ à¤¬à¥à¤•à¤¿à¤‚à¤—">Seva Booking</a>
+    <a href="#transparency" data-en="Transparency" data-hi="à¤ªà¤¾à¤°à¤¦à¤°à¥à¤¶à¤¿à¤¤à¤¾">Transparency</a>
+    <a href="#live" data-en="Live Darshan" data-hi="à¤²à¤¾à¤‡à¤µ à¤¦à¤°à¥à¤¶à¤¨">Live Darshan</a>
+    <a href="#certificate" data-en="Certificate" data-hi="à¤ªà¥à¤°à¤®à¤¾à¤£à¤ªà¤¤à¥à¤°">Certificate</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div>
+    <h1 data-en="Welcome to Shree Dharma Temple" data-hi="à¤¶à¥à¤°à¥€ à¤§à¤°à¥à¤® à¤®à¤‚à¤¦à¤¿à¤° à¤®à¥‡à¤‚ à¤†à¤ªà¤•à¤¾ à¤¸à¥à¤µà¤¾à¤—à¤¤ à¤¹à¥ˆ">
+      Welcome to Shree Dharma Temple
+    </h1>
+
+    <p
+      data-en="A sacred place for devotion, peace, seva, festivals, and spiritual connection for devotees across the world."
+      data-hi="à¤­à¤•à¥à¤¤à¤¿, à¤¶à¤¾à¤‚à¤¤à¤¿, à¤¸à¥‡à¤µà¤¾, à¤¤à¥à¤¯à¥‹à¤¹à¤¾à¤° à¤”à¤° à¤µà¤¿à¤¶à¥à¤µà¤­à¤° à¤•à¥‡ à¤­à¤•à¥à¤¤à¥‹à¤‚ à¤•à¥‡ à¤†à¤§à¥à¤¯à¤¾à¤¤à¥à¤®à¤¿à¤• à¤œà¥à¤¡à¤¼à¤¾à¤µ à¤•à¤¾ à¤ªà¤µà¤¿à¤¤à¥à¤° à¤¸à¥à¤¥à¤¾à¤¨à¥¤">
+      A sacred place for devotion, peace, seva, festivals, and spiritual connection for devotees across the world.
+    </p>
+    <div class="hero-actions">
+      <a class="btn" href="#donation" data-en="Donate Now" data-hi="à¤…à¤­à¥€ à¤¦à¤¾à¤¨ à¤•à¤°à¥‡à¤‚">Donate Now</a>
+      <a class="btn ghost" href="#live" data-en="Watch Live Darshan" data-hi="à¤²à¤¾à¤‡à¤µ à¤¦à¤°à¥à¤¶à¤¨ à¤¦à¥‡à¤–à¥‡à¤‚">Watch Live Darshan</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about-section">
+  <h2 class="section-title" data-en="About Us" data-hi="About Us">
+    About Us
+  </h2>
+
+  <div class="about-layout">
+    <div class="about-media">
+      <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1200&q=85" alt="Shree Dharma Temple exterior">
+    </div>
+
+    <div class="about-content">
+      <span class="eyebrow" data-en="A living center of devotion" data-hi="A living center of devotion">A living center of devotion</span>
+      <h3 data-en="Preserving worship, service, and sacred culture for every devotee." data-hi="Preserving worship, service, and sacred culture for every devotee.">
+        Preserving worship, service, and sacred culture for every devotee.
+      </h3>
+      <p
+        data-en="Shree Dharma Temple is a peaceful spiritual home dedicated to daily worship, seva, festival celebrations, and the preservation of timeless cultural values."
+        data-hi="Shree Dharma Temple is a peaceful spiritual home dedicated to daily worship, seva, festival celebrations, and the preservation of timeless cultural values.">
+        Shree Dharma Temple is a peaceful spiritual home dedicated to daily worship, seva, festival celebrations, and the preservation of timeless cultural values.
+      </p>
+      <p
+        data-en="The temple brings devotees together through aarti, bhajan, prasad, community service, and learning. Its spiritual environment supports prayer, reflection, and connection across generations."
+        data-hi="The temple brings devotees together through aarti, bhajan, prasad, community service, and learning. Its spiritual environment supports prayer, reflection, and connection across generations.">
+        The temple brings devotees together through aarti, bhajan, prasad, community service, and learning. Its spiritual environment supports prayer, reflection, and connection across generations.
+      </p>
+      <div class="about-highlights">
+        <div>
+          <strong data-en="Daily Darshan" data-hi="Daily Darshan">Daily Darshan</strong>
+          <span data-en="Morning and evening worship" data-hi="Morning and evening worship">Morning and evening worship</span>
+        </div>
+        <div>
+          <strong data-en="Community Seva" data-hi="Community Seva">Community Seva</strong>
+          <span data-en="Food, learning, and care" data-hi="Food, learning, and care">Food, learning, and care</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pradhan-section" aria-labelledby="gramPradhanTitle">
+    <div class="pradhan-head">
+      <span class="eyebrow" data-en="Village leadership" data-hi="Village leadership">Village leadership</span>
+      <h3 id="gramPradhanTitle" data-en="Meet Our Gram Pradhan" data-hi="Meet Our Gram Pradhan">
+        Meet Our Gram Pradhan
+      </h3>
+      <p
+        data-en="Honoring the community leadership that supports temple service, local culture, and the welfare of devotees."
+        data-hi="Honoring the community leadership that supports temple service, local culture, and the welfare of devotees.">
+        Honoring the community leadership that supports temple service, local culture, and the welfare of devotees.
+      </p>
+    </div>
+
+    <div class="pradhan-slider" data-slider="gram-pradhan">
+      <button class="pradhan-nav pradhan-prev" type="button" aria-label="Previous Gram Pradhan">&lsaquo;</button>
+
+      <div class="pradhan-viewport">
+        <div class="pradhan-track">
+          <article class="pradhan-card is-active">
+            <div class="pradhan-photo-wrap">
+              <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?auto=format&fit=crop&w=700&q=80" alt="Rajesh Sharma">
+            </div>
+            <div class="pradhan-info">
+              <span class="pradhan-role" data-en="Gram Pradhan" data-hi="Gram Pradhan">Gram Pradhan</span>
+              <h4 data-en="Rajesh Sharma" data-hi="Rajesh Sharma">Rajesh Sharma</h4>
+              <p data-en="A dedicated village leader supporting temple upkeep, festival coordination, cleanliness drives, and community welfare initiatives."
+                 data-hi="A dedicated village leader supporting temple upkeep, festival coordination, cleanliness drives, and community welfare initiatives.">
+                A dedicated village leader supporting temple upkeep, festival coordination, cleanliness drives, and community welfare initiatives.
+              </p>
+              <blockquote data-en="Together, we preserve faith, service, and harmony for every family."
+                          data-hi="Together, we preserve faith, service, and harmony for every family.">
+                Together, we preserve faith, service, and harmony for every family.
+              </blockquote>
+            </div>
+          </article>
+
+          <article class="pradhan-card">
+            <div class="pradhan-photo-wrap">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=700&q=80" alt="Sunita Devi">
+            </div>
+            <div class="pradhan-info">
+              <span class="pradhan-role" data-en="Gram Pradhan" data-hi="Gram Pradhan">Gram Pradhan</span>
+              <h4 data-en="Sunita Devi" data-hi="Sunita Devi">Sunita Devi</h4>
+              <p data-en="Known for inclusive development, cultural programs, women-led seva efforts, and active participation in temple festivals."
+                 data-hi="Known for inclusive development, cultural programs, women-led seva efforts, and active participation in temple festivals.">
+                Known for inclusive development, cultural programs, women-led seva efforts, and active participation in temple festivals.
+              </p>
+              <blockquote data-en="A village grows stronger when devotion and service move together."
+                          data-hi="A village grows stronger when devotion and service move together.">
+                A village grows stronger when devotion and service move together.
+              </blockquote>
+            </div>
+          </article>
+
+          <article class="pradhan-card">
+            <div class="pradhan-photo-wrap">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80" alt="Mahendra Singh">
+            </div>
+            <div class="pradhan-info">
+              <span class="pradhan-role" data-en="Gram Pradhan" data-hi="Gram Pradhan">Gram Pradhan</span>
+              <h4 data-en="Mahendra Singh" data-hi="Mahendra Singh">Mahendra Singh</h4>
+              <p data-en="Committed to preserving village traditions while improving visitor facilities, safety, and local participation around the temple."
+                 data-hi="Committed to preserving village traditions while improving visitor facilities, safety, and local participation around the temple.">
+                Committed to preserving village traditions while improving visitor facilities, safety, and local participation around the temple.
+              </p>
+              <blockquote data-en="Our temple is the heart of our shared heritage and responsibility."
+                          data-hi="Our temple is the heart of our shared heritage and responsibility.">
+                Our temple is the heart of our shared heritage and responsibility.
+              </blockquote>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <button class="pradhan-nav pradhan-next" type="button" aria-label="Next Gram Pradhan">&rsaquo;</button>
+    </div>
+
+    <div class="pradhan-dots" aria-label="Gram Pradhan slider pagination">
+      <button class="pradhan-dot is-active" type="button" aria-label="Show Gram Pradhan slide 1"></button>
+      <button class="pradhan-dot" type="button" aria-label="Show Gram Pradhan slide 2"></button>
+      <button class="pradhan-dot" type="button" aria-label="Show Gram Pradhan slide 3"></button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title" data-en="Temple History and Location" data-hi="Temple History and Location">
+    Temple History and Location
+  </h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3 data-en="History" data-hi="à¤‡à¤¤à¤¿à¤¹à¤¾à¤¸">History</h3>
+      <p
+        data-en="The temple was established by devotees with the vision of creating a peaceful spiritual center for all generations."
+        data-hi="à¤®à¤‚à¤¦à¤¿à¤° à¤•à¥€ à¤¸à¥à¤¥à¤¾à¤ªà¤¨à¤¾ à¤­à¤•à¥à¤¤à¥‹à¤‚ à¤¨à¥‡ à¤¸à¤­à¥€ à¤ªà¥€à¤¢à¤¼à¤¿à¤¯à¥‹à¤‚ à¤•à¥‡ à¤²à¤¿à¤ à¤à¤• à¤¶à¤¾à¤‚à¤¤ à¤†à¤§à¥à¤¯à¤¾à¤¤à¥à¤®à¤¿à¤• à¤•à¥‡à¤‚à¤¦à¥à¤° à¤¬à¤¨à¤¾à¤¨à¥‡ à¤•à¥‡ à¤‰à¤¦à¥à¤¦à¥‡à¤¶à¥à¤¯ à¤¸à¥‡ à¤•à¥€à¥¤">
+        The temple was established by devotees with the vision of creating a peaceful spiritual center for all generations.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 data-en="Location" data-hi="à¤¸à¥à¤¥à¤¾à¤¨">Location</h3>
+      <p
+        data-en="Temple Address: Main Road, Holy City, India. Open daily from 5:00 AM to 9:00 PM."
+        data-hi="à¤®à¤‚à¤¦à¤¿à¤° à¤ªà¤¤à¤¾: à¤®à¥à¤–à¥à¤¯ à¤®à¤¾à¤°à¥à¤—, à¤ªà¤µà¤¿à¤¤à¥à¤° à¤¨à¤—à¤°, à¤­à¤¾à¤°à¤¤à¥¤ à¤ªà¥à¤°à¤¤à¤¿à¤¦à¤¿à¤¨ à¤¸à¥à¤¬à¤¹ 5:00 à¤¬à¤œà¥‡ à¤¸à¥‡ à¤°à¤¾à¤¤ 9:00 à¤¬à¤œà¥‡ à¤¤à¤• à¤–à¥à¤²à¤¾à¥¤">
+        Temple Address: Main Road, Holy City, India. Open daily from 5:00 AM to 9:00 PM.
+      </p>
+
+      <iframe
+        class="map"
+        src="https://www.google.com/maps?q=Varanasi%20Temple%20India&output=embed">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2 class="section-title" data-en="Temple Photo Gallery" data-hi="Temple Photo Gallery">
+    Temple Photo Gallery
+  </h2>
+
+  <div class="gallery-shell">
+    <button class="carousel-btn carousel-prev" type="button" aria-label="Previous gallery photo">&lsaquo;</button>
+    <div class="photo-carousel" id="photoCarousel" tabindex="0" aria-label="Temple photos">
+    <article class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1609766418204-94aae0ecf2e0?auto=format&fit=crop&w=900&q=80" alt="Festival">
+      <h3 data-en="Festivals" data-hi="à¤¤à¥à¤¯à¥‹à¤¹à¤¾à¤°">Festivals</h3>
+      <p data-en="Glimpses of major temple celebrations and devotee gatherings."
+         data-hi="à¤®à¥à¤–à¥à¤¯ à¤®à¤‚à¤¦à¤¿à¤° à¤‰à¤¤à¥à¤¸à¤µà¥‹à¤‚ à¤”à¤° à¤­à¤•à¥à¤¤à¥‹à¤‚ à¤•à¥‡ à¤¸à¤®à¤¾à¤—à¤® à¤•à¥€ à¤à¤²à¤•à¤¿à¤¯à¤¾à¤‚à¥¤">
+        Glimpses of major temple celebrations and devotee gatherings.
+      </p>
+    </article>
+
+    <article class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=900&q=80" alt="Ritual">
+      <h3 data-en="Rituals" data-hi="à¤…à¤¨à¥à¤·à¥à¤ à¤¾à¤¨">Rituals</h3>
+      <p data-en="Daily aarti, abhishekam, havan, and special pujas."
+         data-hi="à¤¦à¥ˆà¤¨à¤¿à¤• à¤†à¤°à¤¤à¥€, à¤…à¤­à¤¿à¤·à¥‡à¤•, à¤¹à¤µà¤¨ à¤”à¤° à¤µà¤¿à¤¶à¥‡à¤· à¤ªà¥‚à¤œà¤¾à¤à¤‚à¥¤">
+        Daily aarti, abhishekam, havan, and special pujas.
+      </p>
+    </article>
+
+    <article class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=900&q=80" alt="Temple Architecture">
+      <h3 data-en="Temple Architecture" data-hi="à¤®à¤‚à¤¦à¤¿à¤° à¤µà¤¾à¤¸à¥à¤¤à¥à¤•à¤²à¤¾">Temple Architecture</h3>
+      <p data-en="Traditional architecture, carvings, sanctum, and temple mandap."
+         data-hi="à¤ªà¤¾à¤°à¤‚à¤ªà¤°à¤¿à¤• à¤µà¤¾à¤¸à¥à¤¤à¥à¤•à¤²à¤¾, à¤¨à¤•à¥à¤•à¤¾à¤¶à¥€, à¤—à¤°à¥à¤­à¤—à¥ƒà¤¹ à¤”à¤° à¤®à¤‚à¤¦à¤¿à¤° à¤®à¤‚à¤¡à¤ªà¥¤">
+        Traditional architecture, carvings, sanctum, and temple mandap.
+      </p>
+    </article>
+    <article class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80" alt="Temple Entrance">
+      <h3 data-en="Temple Entrance" data-hi="à¤®à¤‚à¤¦à¤¿à¤° à¤ªà¥à¤°à¤µà¥‡à¤¶ à¤¦à¥à¤µà¤¾à¤°">Temple Entrance</h3>
+      <p data-en="Beautiful darshan view from the temple entrance."
+         data-hi="à¤®à¤‚à¤¦à¤¿à¤° à¤ªà¥à¤°à¤µà¥‡à¤¶ à¤¦à¥à¤µà¤¾à¤° à¤¸à¥‡ à¤¸à¥à¤‚à¤¦à¤° à¤¦à¤°à¥à¤¶à¤¨ à¤¦à¥ƒà¤¶à¥à¤¯à¥¤">
+        Beautiful darshan view from the temple entrance.
+      </p>
+    </article>
+    <article class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=900&q=80" alt="Temple water reflection">
+      <h3 data-en="Sacred Ambience" data-hi="Sacred Ambience">Sacred Ambience</h3>
+      <p data-en="Serene views that reflect the devotional atmosphere of the temple."
+         data-hi="Serene views that reflect the devotional atmosphere of the temple.">
+        Serene views that reflect the devotional atmosphere of the temple.
+      </p>
+    </article>
+    <article class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1524492449090-8d7c3b1f4d2a?auto=format&fit=crop&w=900&q=80" alt="Temple towers">
+      <h3 data-en="Sacred Architecture" data-hi="Sacred Architecture">Sacred Architecture</h3>
+      <p data-en="Graceful temple forms, carved details, and traditional design."
+         data-hi="Graceful temple forms, carved details, and traditional design.">
+        Graceful temple forms, carved details, and traditional design.
+      </p>
+    </article>
+    </div>
+    <button class="carousel-btn carousel-next" type="button" aria-label="Next gallery photo">&rsaquo;</button>
+  </div>
+
+</section>
+
+<section id="traditions" class="traditions-section">
+  <h2 class="section-title" data-en="Temple Traditions and Culture" data-hi="Temple Traditions and Culture">
+    Temple Traditions and Culture
+  </h2>
+
+  <div class="traditions-grid">
+    <article class="tradition-card">
+      <span class="tradition-icon" aria-hidden="true">Om</span>
+      <h3 data-en="Daily Aarti" data-hi="Daily Aarti">Daily Aarti</h3>
+      <p data-en="Morning and evening aarti create a calm rhythm of devotion, prayer, and collective blessings."
+         data-hi="Morning and evening aarti create a calm rhythm of devotion, prayer, and collective blessings.">
+        Morning and evening aarti create a calm rhythm of devotion, prayer, and collective blessings.
+      </p>
+    </article>
+
+    <article class="tradition-card">
+      <span class="tradition-icon" aria-hidden="true">Seva</span>
+      <h3 data-en="Seva and Prasad" data-hi="Seva and Prasad">Seva and Prasad</h3>
+      <p data-en="Devotees participate in annadanam, prasad distribution, temple care, and community service."
+         data-hi="Devotees participate in annadanam, prasad distribution, temple care, and community service.">
+        Devotees participate in annadanam, prasad distribution, temple care, and community service.
+      </p>
+    </article>
+
+    <article class="tradition-card">
+      <span class="tradition-icon" aria-hidden="true">Fest</span>
+      <h3 data-en="Festival Culture" data-hi="Festival Culture">Festival Culture</h3>
+      <p data-en="Major festivals bring bhajan, decoration, special puja, and joyful gatherings for all generations."
+         data-hi="Major festivals bring bhajan, decoration, special puja, and joyful gatherings for all generations.">
+        Major festivals bring bhajan, decoration, special puja, and joyful gatherings for all generations.
+      </p>
+    </article>
+
+    <article class="tradition-card">
+      <span class="tradition-icon" aria-hidden="true">Dharma</span>
+      <h3 data-en="Cultural Learning" data-hi="Cultural Learning">Cultural Learning</h3>
+      <p data-en="Stories, scriptures, music, and values are shared to keep spiritual heritage meaningful and alive."
+         data-hi="Stories, scriptures, music, and values are shared to keep spiritual heritage meaningful and alive.">
+        Stories, scriptures, music, and values are shared to keep spiritual heritage meaningful and alive.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="festivals">
+  <h2 class="section-title" data-en="Upcoming Festival and Countdown" data-hi="à¤†à¤—à¤¾à¤®à¥€ à¤¤à¥à¤¯à¥‹à¤¹à¤¾à¤° à¤”à¤° à¤•à¤¾à¤‰à¤‚à¤Ÿà¤¡à¤¾à¤‰à¤¨">
+    Upcoming Festival and Countdown
+  </h2>
+
+  <div class="card center festival-countdown-card">
+    <div class="festival-countdown-content">
+      <span class="festival-eyebrow" data-en="Next Major Festival" data-hi="Next Major Festival">Next Major Festival</span>
+    <h3 data-en="Janmashtami Mahotsav 2026" data-hi="à¤œà¤¨à¥à¤®à¤¾à¤·à¥à¤Ÿà¤®à¥€ à¤®à¤¹à¥‹à¤¤à¥à¤¸à¤µ 2026">
+      Janmashtami Mahotsav 2026
+    </h3>
+
+    <p
+      data-en="Date: 15 August 2026 | Special Abhishek, Bhajan Sandhya, Maha Aarti and Prasad distribution."
+      data-hi="à¤¤à¤¿à¤¥à¤¿: 15 à¤…à¤—à¤¸à¥à¤¤ 2026 | à¤µà¤¿à¤¶à¥‡à¤· à¤…à¤­à¤¿à¤·à¥‡à¤•, à¤­à¤œà¤¨ à¤¸à¤‚à¤§à¥à¤¯à¤¾, à¤®à¤¹à¤¾ à¤†à¤°à¤¤à¥€ à¤”à¤° à¤ªà¥à¤°à¤¸à¤¾à¤¦ à¤µà¤¿à¤¤à¤°à¤£à¥¤">
+      Date: 15 August 2026 | Special Abhishek, Bhajan Sandhya, Maha Aarti and Prasad distribution.
+    </p>
+    </div>
+
+    <div class="countdown" aria-label="Festival countdown">
+      <div class="time-box">
+        <span id="days">0</span>
+        <small data-en="Days" data-hi="à¤¦à¤¿à¤¨">Days</small>
+      </div>
+
+      <div class="time-box">
+        <span id="hours">0</span>
+        <small data-en="Hours" data-hi="à¤˜à¤‚à¤Ÿà¥‡">Hours</small>
+      </div>
+
+      <div class="time-box">
+        <span id="minutes">0</span>
+        <small data-en="Minutes" data-hi="à¤®à¤¿à¤¨à¤Ÿ">Minutes</small>
+      </div>
+
+      <div class="time-box">
+        <span id="seconds">0</span>
+        <small data-en="Seconds" data-hi="à¤¸à¥‡à¤•à¤‚à¤¡">Seconds</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid festival-grid">
+    <div class="card">
+      <h3 data-en="Ram Navami Utsav" data-hi="à¤°à¤¾à¤® à¤¨à¤µà¤®à¥€ à¤‰à¤¤à¥à¤¸à¤µ">Ram Navami Utsav</h3>
+      <p data-en="Special Ramayan Path, Pushp Abhishek and evening maha aarti."
+         data-hi="à¤µà¤¿à¤¶à¥‡à¤· à¤°à¤¾à¤®à¤¾à¤¯à¤£ à¤ªà¤¾à¤ , à¤ªà¥à¤·à¥à¤ª à¤…à¤­à¤¿à¤·à¥‡à¤• à¤”à¤° à¤¶à¤¾à¤® à¤•à¥€ à¤®à¤¹à¤¾ à¤†à¤°à¤¤à¥€à¥¤">
+        Special Ramayan Path, Pushp Abhishek and evening maha aarti.
+      </p>
+    </div>
+    <div class="card">
+      <h3 data-en="Navratri Mahapuja" data-hi="à¤¨à¤µà¤°à¤¾à¤¤à¥à¤°à¤¿ à¤®à¤¹à¤¾à¤ªà¥‚à¤œà¤¾">Navratri Mahapuja</h3>
+      <p data-en="Nine-day Devi pujan, bhajan sandhya and kumari puja."
+         data-hi="à¤¨à¥Œ à¤¦à¤¿à¤¨ à¤•à¥€ à¤¦à¥‡à¤µà¥€ à¤ªà¥‚à¤œà¤¨, à¤­à¤œà¤¨ à¤¸à¤‚à¤§à¥à¤¯à¤¾ à¤”à¤° à¤•à¥à¤®à¤¾à¤°à¥€ à¤ªà¥‚à¤œà¤¾à¥¤">
+        Nine-day Devi pujan, bhajan sandhya and kumari puja.
+      </p>
+    </div>
+    <div class="card">
+      <h3 data-en="Mahashivratri Jaagran" data-hi="à¤®à¤¹à¤¾à¤¶à¤¿à¤µà¤°à¤¾à¤¤à¥à¤°à¤¿ à¤œà¤¾à¤—à¤°à¤£">Mahashivratri Jaagran</h3>
+      <p data-en="Rudrabhishek, night jaagran, and maha prasad seva."
+         data-hi="à¤°à¥à¤¦à¥à¤°à¤¾à¤­à¤¿à¤·à¥‡à¤•, à¤°à¤¾à¤¤à¥à¤°à¤¿ à¤œà¤¾à¤—à¤°à¤£ à¤”à¤° à¤®à¤¹à¤¾à¤ªà¥à¤°à¤¸à¤¾à¤¦ à¤¸à¥‡à¤µà¤¾à¥¤">
+        Rudrabhishek, night jaagran, and maha prasad seva.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="donation">
+  <h2 class="section-title" data-en="Donation via UPI QR" data-hi="UPI QR à¤¦à¥à¤µà¤¾à¤°à¤¾ à¤¦à¤¾à¤¨">
+    Donation via UPI QR
+  </h2>
+
+  <div class="donation-layout">
+    <div class="donation-card">
+      <h3 data-en="Scan and Pay" data-hi="à¤¸à¥à¤•à¥ˆà¤¨ à¤•à¤°à¥‡à¤‚ à¤”à¤° à¤­à¥à¤—à¤¤à¤¾à¤¨ à¤•à¤°à¥‡à¤‚">Scan and Pay</h3>
+
+      <p
+        data-en="Devotees can donate using UPI QR. NRI devotees with supported UPI-enabled NRE/NRO accounts may also use UPI."
+        data-hi="à¤­à¤•à¥à¤¤ UPI QR à¤¸à¥‡ à¤¦à¤¾à¤¨ à¤•à¤° à¤¸à¤•à¤¤à¥‡ à¤¹à¥ˆà¤‚à¥¤ UPI-à¤¸à¤•à¥à¤·à¤® NRE/NRO à¤–à¤¾à¤¤à¥‡ à¤µà¤¾à¤²à¥‡ NRI à¤­à¤•à¥à¤¤ à¤­à¥€ UPI à¤•à¤¾ à¤‰à¤ªà¤¯à¥‹à¤— à¤•à¤° à¤¸à¤•à¤¤à¥‡ à¤¹à¥ˆà¤‚à¥¤">
+        Devotees can donate using UPI QR. NRI devotees with supported UPI-enabled NRE/NRO accounts may also use UPI.
+      </p>
+
+      <div class="donation-main">
+        <form id="donationForm" class="donation-form-panel">
+          <input type="text" id="donorName" placeholder="Donor Name" required>
+          <input type="number" id="donationAmount" placeholder="Amount INR" min="1" required>
+          <select id="donationPurpose" required>
+            <option value="General Donation">General Donation</option>
+            <option value="Annadanam">Annadanam</option>
+            <option value="Temple Maintenance">Temple Maintenance</option>
+            <option value="Festival Seva">Festival Seva</option>
+            <option value="Education and Community Seva">Education and Community Seva</option>
+          </select>
+          <textarea id="donationMessage" placeholder="Message"></textarea>
+
+          <label class="public-name-option">
+            <input type="checkbox" id="showPublicName">
+            <span data-en="Show my name publicly" data-hi="à¤®à¥‡à¤°à¤¾ à¤¨à¤¾à¤® à¤¸à¤¾à¤°à¥à¤µà¤œà¤¨à¤¿à¤• à¤¦à¤¿à¤–à¤¾à¤à¤‚">Show my name publicly</span>
+          </label>
+
+          <button id="payNowBtn" type="submit" data-en="Pay Now" data-hi="à¤…à¤­à¥€ à¤­à¥à¤—à¤¤à¤¾à¤¨ à¤•à¤°à¥‡à¤‚">
+            Pay Now
+          </button>
+          <p id="donationStatus" class="status donation-status" role="status" aria-live="polite"></p>
+          <button id="downloadDonationCertificateBtn" class="secondary-action" type="button" hidden data-en="Download Certificate" data-hi="à¤ªà¥à¤°à¤®à¤¾à¤£à¤ªà¤¤à¥à¤° à¤¡à¤¾à¤‰à¤¨à¤²à¥‹à¤¡ à¤•à¤°à¥‡à¤‚">
+            Download Certificate
+          </button>
+        </form>
+
+        <div class="qr-box donation-qr-panel">
+          <img id="donationQR" alt="UPI Donation QR">
+          <p class="upi-id">UPI ID: <strong>temple@upi</strong></p>
+          <a id="upiDonationLink" class="btn" href="#" data-en="Pay with UPI App" data-hi="UPI à¤à¤ª à¤¸à¥‡ à¤­à¥à¤—à¤¤à¤¾à¤¨ à¤•à¤°à¥‡à¤‚">
+            Pay with UPI App
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="notice"
+        data-en="For international card payments, connect Razorpay, Stripe, PayPal, or a bank gateway in production."
+        data-hi="à¤…à¤‚à¤¤à¤°à¤°à¤¾à¤·à¥à¤Ÿà¥à¤°à¥€à¤¯ à¤•à¤¾à¤°à¥à¤¡ à¤­à¥à¤—à¤¤à¤¾à¤¨ à¤•à¥‡ à¤²à¤¿à¤ à¤ªà¥à¤°à¥‹à¤¡à¤•à¥à¤¶à¤¨ à¤®à¥‡à¤‚ Razorpay, Stripe, PayPal à¤¯à¤¾ à¤¬à¥ˆà¤‚à¤• à¤—à¥‡à¤Ÿà¤µà¥‡ à¤œà¥‹à¤¡à¤¼à¥‡à¤‚à¥¤">
+        For international card payments, connect Razorpay, Stripe, PayPal, or a bank gateway in production.
+      </div>
+    </div>
+  </div>
+
+  <div class="recent-donations">
+    <div class="recent-donations-head">
+      <h3 data-en="Recent Donations" data-hi="à¤¹à¤¾à¤² à¤•à¥‡ à¤¦à¤¾à¤¨">Recent Donations</h3>
+      <a class="btn recent-view-all" href="donation-history.html" data-en="View All" data-hi="à¤¸à¤­à¥€ à¤¦à¥‡à¤–à¥‡à¤‚">View All</a>
+    </div>
+
+    <div id="recentDonationsList" class="recent-donations-list" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="seva">
+  <h2 class="section-title" data-en="Seva Booking" data-hi="à¤¸à¥‡à¤µà¤¾ à¤¬à¥à¤•à¤¿à¤‚à¤—">
+    Seva Booking
+  </h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3 data-en="Book Puja with Date and Payment" data-hi="à¤¤à¤¿à¤¥à¤¿ à¤”à¤° à¤­à¥à¤—à¤¤à¤¾à¤¨ à¤•à¥‡ à¤¸à¤¾à¤¥ à¤ªà¥‚à¤œà¤¾ à¤¬à¥à¤• à¤•à¤°à¥‡à¤‚">
+        Book Puja with Date and Payment
+      </h3>
+
+      <form id="sevaForm">
+        <input type="text" id="sevaName" placeholder="Full Name" required>
+        <input type="email" id="sevaEmail" placeholder="Email" required>
+        <input type="tel" id="sevaPhone" placeholder="Phone" required>
+
+        <select id="sevaType" required>
+          <option value="">Select Seva</option>
+          <option value="Archana" data-price="251">Archana - ₹251</option>
+          <option value="Abhishekam" data-price="1100">Abhishekam - ₹1100</option>
+          <option value="Satyanarayan Puja" data-price="2100">Satyanarayan Puja - ₹2100</option>
+          <option value="Havan" data-price="5100">Havan - ₹5100</option>
+        </select>
+
+        <input type="date" id="sevaDate" required>
+        <input type="number" id="sevaAmount" placeholder="Amount" readonly>
+
+        <button type="submit" data-en="Book Seva and Generate Payment QR" data-hi="à¤¸à¥‡à¤µà¤¾ à¤¬à¥à¤• à¤•à¤°à¥‡à¤‚ à¤”à¤° à¤­à¥à¤—à¤¤à¤¾à¤¨ QR à¤¬à¤¨à¤¾à¤à¤‚">
+          Book Seva and Generate Payment QR
+        </button>
+      </form>
+    </div>
+
+    <div class="card qr-box">
+      <h3 data-en="Seva Payment QR" data-hi="à¤¸à¥‡à¤µà¤¾ à¤­à¥à¤—à¤¤à¤¾à¤¨ QR">Seva Payment QR</h3>
+
+      <img id="sevaQR" alt="Seva Payment QR">
+
+      <br><br>
+
+      <a id="upiSevaLink" class="btn" href="#" data-en="Pay Seva Amount" data-hi="à¤¸à¥‡à¤µà¤¾ à¤°à¤¾à¤¶à¤¿ à¤­à¥à¤—à¤¤à¤¾à¤¨ à¤•à¤°à¥‡à¤‚">
+        Pay Seva Amount
+      </a>
+
+      <p id="sevaStatus" class="status"></p>
+    </div>
+  </div>
+</section>
+
+<section id="transparency">
+  <h2 class="section-title" data-en="Transparency: How Donations Are Used" data-hi="à¤ªà¤¾à¤°à¤¦à¤°à¥à¤¶à¤¿à¤¤à¤¾: à¤¦à¤¾à¤¨ à¤•à¤¾ à¤‰à¤ªà¤¯à¥‹à¤— à¤•à¥ˆà¤¸à¥‡ à¤¹à¥‹à¤¤à¤¾ à¤¹à¥ˆ">
+    Transparency: How Donations Are Used
+  </h2>
+
+  <div class="card">
+    <p
+      data-en="We believe in building trust with devotees. Donation usage is shared regularly for transparency."
+      data-hi="à¤¹à¤® à¤­à¤•à¥à¤¤à¥‹à¤‚ à¤•à¥‡ à¤¸à¤¾à¤¥ à¤µà¤¿à¤¶à¥à¤µà¤¾à¤¸ à¤¬à¤¨à¤¾à¤¨à¥‡ à¤®à¥‡à¤‚ à¤µà¤¿à¤¶à¥à¤µà¤¾à¤¸ à¤°à¤–à¤¤à¥‡ à¤¹à¥ˆà¤‚à¥¤ à¤ªà¤¾à¤°à¤¦à¤°à¥à¤¶à¤¿à¤¤à¤¾ à¤•à¥‡ à¤²à¤¿à¤ à¤¦à¤¾à¤¨ à¤‰à¤ªà¤¯à¥‹à¤— à¤¨à¤¿à¤¯à¤®à¤¿à¤¤ à¤°à¥‚à¤ª à¤¸à¥‡ à¤¸à¤¾à¤à¤¾ à¤•à¤¿à¤¯à¤¾ à¤œà¤¾à¤¤à¤¾ à¤¹à¥ˆà¥¤">
+      We believe in building trust with devotees. Donation usage is shared regularly for transparency.
+    </p>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span data-en="Annadanam and Prasad" data-hi="à¤…à¤¨à¥à¤¨à¤¦à¤¾à¤¨ à¤”à¤° à¤ªà¥à¤°à¤¸à¤¾à¤¦">Annadanam and Prasad</span>
+        <span>35%</span>
+      </div>
+      <div class="progress"><div style="width:35%"></div></div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span data-en="Temple Maintenance" data-hi="à¤®à¤‚à¤¦à¤¿à¤° à¤°à¤–à¤°à¤–à¤¾à¤µ">Temple Maintenance</span>
+        <span>25%</span>
+      </div>
+      <div class="progress"><div style="width:25%"></div></div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span data-en="Festivals and Rituals" data-hi="à¤¤à¥à¤¯à¥‹à¤¹à¤¾à¤° à¤”à¤° à¤…à¤¨à¥à¤·à¥à¤ à¤¾à¤¨">Festivals and Rituals</span>
+        <span>25%</span>
+      </div>
+      <div class="progress"><div style="width:25%"></div></div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span data-en="Education and Community Seva" data-hi="à¤¶à¤¿à¤•à¥à¤·à¤¾ à¤”à¤° à¤¸à¤¾à¤®à¥à¤¦à¤¾à¤¯à¤¿à¤• à¤¸à¥‡à¤µà¤¾">Education and Community Seva</span>
+        <span>15%</span>
+      </div>
+      <div class="progress"><div style="width:15%"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="live">
+  <h2 class="section-title" data-en="Live Darshan Stream" data-hi="à¤²à¤¾à¤‡à¤µ à¤¦à¤°à¥à¤¶à¤¨ à¤¸à¥à¤Ÿà¥à¤°à¥€à¤®">
+    Live Darshan Stream
+  </h2>
+
+  <div class="card">
+    <p
+      data-en="Devotees from anywhere can watch live darshan, aarti, and special festival streams."
+      data-hi="à¤­à¤•à¥à¤¤ à¤•à¤¹à¥€à¤‚ à¤¸à¥‡ à¤­à¥€ à¤²à¤¾à¤‡à¤µ à¤¦à¤°à¥à¤¶à¤¨, à¤†à¤°à¤¤à¥€ à¤”à¤° à¤µà¤¿à¤¶à¥‡à¤· à¤¤à¥à¤¯à¥‹à¤¹à¤¾à¤° à¤¸à¥à¤Ÿà¥à¤°à¥€à¤® à¤¦à¥‡à¤– à¤¸à¤•à¤¤à¥‡ à¤¹à¥ˆà¤‚à¥¤">
+      Devotees from anywhere can watch live darshan, aarti, and special festival streams.
+    </p>
+
+    <iframe
+      class="live-video"
+      src="https://www.youtube.com/embed/live_stream?channel=UC_x5XG1OV2P6uZZ5FSM9Ttw"
+      allowfullscreen>
+    </iframe>
+
+    <div
+      class="notice"
+      data-en="Replace the YouTube channel/video link with your temple's official livestream link."
+      data-hi="YouTube à¤šà¥ˆà¤¨à¤²/à¤µà¥€à¤¡à¤¿à¤¯à¥‹ à¤²à¤¿à¤‚à¤• à¤•à¥‹ à¤…à¤ªà¤¨à¥‡ à¤®à¤‚à¤¦à¤¿à¤° à¤•à¥‡ à¤†à¤§à¤¿à¤•à¤¾à¤°à¤¿à¤• à¤²à¤¾à¤‡à¤µà¤¸à¥à¤Ÿà¥à¤°à¥€à¤® à¤²à¤¿à¤‚à¤• à¤¸à¥‡ à¤¬à¤¦à¤²à¥‡à¤‚à¥¤">
+      Replace the YouTube channel/video link with your temple's official livestream link.
+    </div>
+  </div>
+</section>
+
+<section id="certificate">
+  <h2 class="section-title" data-en="Digital Prashad Certificate for Donor" data-hi="à¤¦à¤¾à¤¤à¤¾ à¤•à¥‡ à¤²à¤¿à¤ à¤¡à¤¿à¤œà¤¿à¤Ÿà¤² à¤ªà¥à¤°à¤¸à¤¾à¤¦ à¤ªà¥à¤°à¤®à¤¾à¤£à¤ªà¤¤à¥à¤°">
+    Digital Prashad Certificate for Donor
+  </h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3 data-en="Generate Donor Certificate" data-hi="à¤¦à¤¾à¤¤à¤¾ à¤ªà¥à¤°à¤®à¤¾à¤£à¤ªà¤¤à¥à¤° à¤¬à¤¨à¤¾à¤à¤‚">
+        Generate Donor Certificate
+      </h3>
+
+      <form id="certificateForm">
+        <input type="text" id="certName" placeholder="Donor Name" required>
+        <input type="number" id="certAmount" placeholder="Donation Amount" required>
+
+        <select id="certPurpose" required>
+          <option value="">Select Purpose</option>
+          <option value="Annadanam">Annadanam</option>
+          <option value="Temple Maintenance">Temple Maintenance</option>
+          <option value="Festival Seva">Festival Seva</option>
+          <option value="General Donation">General Donation</option>
+        </select>
+
+        <button type="submit" data-en="Generate Certificate" data-hi="à¤ªà¥à¤°à¤®à¤¾à¤£à¤ªà¤¤à¥à¤° à¤¬à¤¨à¤¾à¤à¤‚">
+          Generate Certificate
+        </button>
+      </form>
+    </div>
+
+    <div class="card">
+      <div id="certificateBox" class="certificate">
+        <h2 data-en="Digital Prashad Certificate" data-hi="à¤¡à¤¿à¤œà¤¿à¤Ÿà¤² à¤ªà¥à¤°à¤¸à¤¾à¤¦ à¤ªà¥à¤°à¤®à¤¾à¤£à¤ªà¤¤à¥à¤°">
+          Digital Prashad Certificate
+        </h2>
+
+        <p data-en="This certificate is presented with blessings to"
+           data-hi="à¤¯à¤¹ à¤ªà¥à¤°à¤®à¤¾à¤£à¤ªà¤¤à¥à¤° à¤†à¤¶à¥€à¤°à¥à¤µà¤¾à¤¦ à¤¸à¤¹à¤¿à¤¤ à¤ªà¥à¤°à¤¦à¤¾à¤¨ à¤•à¤¿à¤¯à¤¾ à¤œà¤¾à¤¤à¤¾ à¤¹à¥ˆ">
+          This certificate is presented with blessings to
+        </p>
+
+        <div class="name" id="certDisplayName">Donor Name</div>
+
+        <p>
+          <span data-en="For a sacred donation of" data-hi="à¤ªà¤µà¤¿à¤¤à¥à¤° à¤¦à¤¾à¤¨ à¤°à¤¾à¤¶à¤¿">
+            For a sacred donation of
+          </span>
+          ₹<span id="certDisplayAmount">0</span>
+        </p>
+
+        <p>
+          <span data-en="Purpose:" data-hi="à¤‰à¤¦à¥à¤¦à¥‡à¤¶à¥à¤¯:">Purpose:</span>
+          <span id="certDisplayPurpose">General Donation</span>
+        </p>
+
+        <p>
+          <span data-en="Certificate ID:" data-hi="à¤ªà¥à¤°à¤®à¤¾à¤£à¤ªà¤¤à¥à¤° à¤†à¤ˆà¤¡à¥€:">Certificate ID:</span>
+          <span id="certId"></span>
+        </p>
+
+        <p>
+          <span data-en="Date:" data-hi="à¤¦à¤¿à¤¨à¤¾à¤‚à¤•:">Date:</span>
+          <span id="certDate"></span>
+        </p>
+
+        <br>
+
+        <p
+          data-en="May the divine blessings bring peace, prosperity and happiness."
+          data-hi="à¤ˆà¤¶à¥à¤µà¤° à¤•à¤¾ à¤†à¤¶à¥€à¤°à¥à¤µà¤¾à¤¦ à¤¶à¤¾à¤‚à¤¤à¤¿, à¤¸à¤®à¥ƒà¤¦à¥à¤§à¤¿ à¤”à¤° à¤¸à¥à¤– à¤ªà¥à¤°à¤¦à¤¾à¤¨ à¤•à¤°à¥‡à¥¤">
+          May the divine blessings bring peace, prosperity and happiness.
+        </p>
+
+        <h3>Shree Dharma Temple</h3>
+      </div>
+
+      <br>
+
+      <button id="printCertificateBtn" data-en="Download / Print Certificate" data-hi="à¤ªà¥à¤°à¤®à¤¾à¤£à¤ªà¤¤à¥à¤° à¤¡à¤¾à¤‰à¤¨à¤²à¥‹à¤¡ / à¤ªà¥à¤°à¤¿à¤‚à¤Ÿ à¤•à¤°à¥‡à¤‚">
+        Download / Print Certificate
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p data-en="Â© 2026 Shree Dharma Temple. All Rights Reserved."
+     data-hi="Â© 2026 à¤¶à¥à¤°à¥€ à¤§à¤°à¥à¤® à¤®à¤‚à¤¦à¤¿à¤°à¥¤ à¤¸à¤°à¥à¤µà¤¾à¤§à¤¿à¤•à¤¾à¤° à¤¸à¥à¤°à¤•à¥à¤·à¤¿à¤¤à¥¤">
+    Â© 2026 Shree Dharma Temple. All Rights Reserved.
+  </p>
+
+  <p data-en="Contact: temple@example.com | +91 98765 43210"
+     data-hi="à¤¸à¤‚à¤ªà¤°à¥à¤•: temple@example.com | +91 98765 43210">
+    Contact: temple@example.com | +91 98765 43210
+  </p>
+</footer>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="tempele.js"></script>
+</body>
+</html>
+
+

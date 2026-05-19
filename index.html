@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temple Explorer • Explore Temples Across India</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="Temple Explorer Home">
+          <span class="brand-mark" aria-hidden="true">🛕</span>
+          <span class="brand-text">Temple Explorer</span>
+        </a>
+
+        <div class="header-actions">
+          <button
+            id="notifBtn"
+            class="btn btn-ghost btn-icon"
+            type="button"
+            aria-label="Notifications"
+            data-speak="Notifications"
+          >
+            🔔
+          </button>
+          <span id="notifCount" class="notif-count" aria-hidden="true">0</span>
+
+          <div id="notifMenu" class="notif-menu" role="menu" aria-label="Notifications dropdown" hidden>
+            <div class="notif-menu-head">
+              <div class="notif-menu-title">Updates</div>
+              <button id="notifClearBtn" class="notif-clear" type="button" data-speak="Mark all as read">
+                Mark read
+              </button>
+            </div>
+            <div id="notifList" class="notif-list"></div>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="nav-link" href="#explore" data-speak="Explore">Explore</a>
+          <a class="nav-link" href="#featured" data-speak="Featured">Featured</a>
+          <a class="nav-link" href="#favorites" data-speak="Bookmarks">Bookmarks</a>
+          <a class="nav-link" href="#recent" data-speak="Recently Viewed">Recently Viewed</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <div class="badge">Temple Explorer Platform</div>
+            <h1 data-speak="Explore Temples Across India">Explore Temples Across India</h1>
+            <p class="subtitle" data-speak="Discover divine places and connect spiritually">Discover divine places and connect spiritually</p>
+
+            <div class="search-wrap" role="search" aria-label="Search temples">
+              <input
+                id="searchInput"
+                class="search-input"
+                type="search"
+                placeholder="Search by temple name, city or state..."
+                autocomplete="off"
+              />
+              <button
+                id="voiceBtn"
+                class="btn btn-ghost btn-icon"
+                type="button"
+                aria-label="Voice search"
+                title="Voice search"
+                data-speak="Voice search"
+              >
+                🎤
+              </button>
+              <button
+                id="clearSearchBtn"
+                class="btn btn-ghost"
+                type="button"
+                data-speak="Clear"
+              >
+                Clear
+              </button>
+            </div>
+
+            <div class="hero-meta">
+              <div class="meta-chip">
+                <span class="meta-key">Temples</span>
+                <span id="templeCount" class="meta-value">—</span>
+              </div>
+              <div class="meta-chip">
+                <span class="meta-key">Bookmarks</span>
+                <span id="favoriteCount" class="meta-value">—</span>
+              </div>
+              <button
+                id="nearbyBtn"
+                class="btn btn-primary"
+                type="button"
+                data-speak="Suggest Nearby"
+              >
+                Suggest Nearby
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-card">
+              <div class="art-title">Today’s Aarti</div>
+              <div class="art-line"></div>
+              <div class="art-line short"></div>
+              <div class="art-kicker">Peace • Seva • Darshan</div>
+            </div>
+            <div class="art-glow"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="festival-banner-wrap" aria-label="Festival highlights">
+        <div class="container festival-banner" id="festivalBanner" data-speak="Festival highlights">
+          <div class="festival-left">
+            <div class="festival-kicker">Festival Highlights</div>
+            <div class="festival-text">Loading festivals...</div>
+          </div>
+          <div class="festival-chips" id="festivalChips"></div>
+        </div>
+      </section>
+
+      <section class="section" id="explore">
+        <div class="container section-head">
+          <h2 class="section-title" data-speak="Explore Temples">Explore Temples</h2>
+          <p class="section-subtitle">
+            Search, filter and open your existing temple detail pages.
+          </p>
+        </div>
+
+        <div class="container controls" aria-label="Search and filter controls">
+          <div class="control">
+            <label for="locationFilter">Location</label>
+            <select id="locationFilter">
+              <option value="">All locations</option>
+            </select>
+          </div>
+
+          <div class="control">
+            <label for="deityFilter">Deity</label>
+            <select id="deityFilter">
+              <option value="">All deities</option>
+            </select>
+          </div>
+
+          <div class="control">
+            <label for="sortSelect">Sort</label>
+            <select id="sortSelect">
+              <option value="az">A–Z</option>
+              <option value="popular">Popular</option>
+              <option value="latest">Latest</option>
+            </select>
+          </div>
+
+          <div class="control control-inline">
+            <label class="checkbox">
+              <input id="onlyFavoritesToggle" type="checkbox" />
+              <span>Only bookmarks</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="container">
+          <div id="resultsMeta" class="results-meta" aria-live="polite"></div>
+          <div id="templeGrid" class="grid" aria-label="Temple listing"></div>
+
+          <div class="load-more-wrap">
+            <button
+              id="loadMoreBtn"
+              class="btn btn-primary"
+              type="button"
+              data-speak="Load More"
+            >
+              Load More
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="featured">
+        <div class="container section-head">
+          <h2 class="section-title" data-speak="Featured / Popular Temples">Featured / Popular Temples</h2>
+          <p class="section-subtitle">
+            A few trending temples to start your spiritual journey.
+          </p>
+        </div>
+
+        <div class="container">
+          <div id="featuredGrid" class="grid" aria-label="Featured temples"></div>
+        </div>
+      </section>
+
+      <section class="section" id="favorites">
+        <div class="container section-head">
+          <h2 class="section-title" data-speak="Bookmarked Temples">Bookmarked Temples</h2>
+          <p class="section-subtitle">Save temples and come back anytime.</p>
+        </div>
+        <div class="container">
+          <div id="favoritesGrid" class="grid" aria-label="Favorite temples"></div>
+        </div>
+      </section>
+
+      <section class="section alt" id="recent">
+        <div class="container section-head">
+          <h2 class="section-title" data-speak="Recently Viewed">Recently Viewed</h2>
+          <p class="section-subtitle">Quick access to temples you opened.</p>
+        </div>
+        <div class="container">
+          <div id="recentGrid" class="grid" aria-label="Recently viewed temples"></div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer-inner">
+          <div class="footer-left">
+            <div class="footer-brand">
+              <span aria-hidden="true">🛕</span> Temple Explorer
+            </div>
+            <div class="footer-note">
+              Designed with a clean spiritual theme (white, saffron, gold).
+            </div>
+          </div>
+          <div class="footer-right">
+            <a class="footer-link" href="#top">Back to top</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <div id="modalOverlay" class="modal-overlay" hidden aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+          <div id="modalTitle" class="modal-title" data-speak="Temple action">Temple action</div>
+          <button id="modalCloseBtn" class="btn btn-ghost btn-icon" type="button" aria-label="Close" data-speak="Close">
+            ✕
+          </button>
+        </div>
+        <iframe id="modalFrame" class="modal-frame" title="Temple action content"></iframe>
+      </div>
+    </div>
+
+    <script src="home.js"></script>
+  </body>
+</html>
+
