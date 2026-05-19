@@ -29,6 +29,54 @@ section {
     scroll-margin-top: 150px;
 }
 
+section:not(.hero) {
+    position: relative;
+    isolation: isolate;
+}
+
+section:not(.hero)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1;
+    background:
+        linear-gradient(180deg, rgba(255, 246, 220, 0) 0 4px, rgba(255, 236, 171, 0.9) 4px 5px, rgba(139, 0, 0, 0.7) 5px 7px, transparent 7px 23px, rgba(139, 0, 0, 0.62) 23px 25px, rgba(255, 236, 171, 0.86) 25px 26px, rgba(255, 246, 220, 0) 26px 100%),
+        radial-gradient(ellipse at 50% 56%, rgba(255, 250, 240, 0.95) 0 5px, rgba(247, 183, 51, 0.88) 6px 7px, transparent 8px) 0 0 / 92px 100% repeat-x,
+        radial-gradient(ellipse at 42% 62%, rgba(255, 232, 170, 0.78) 0 8px, transparent 9px) 0 0 / 92px 100% repeat-x,
+        radial-gradient(ellipse at 58% 62%, rgba(255, 232, 170, 0.78) 0 8px, transparent 9px) 0 0 / 92px 100% repeat-x,
+        radial-gradient(ellipse at 50% 82%, rgba(190, 38, 23, 0.68) 0 11px, transparent 12px) 0 0 / 92px 100% repeat-x,
+        radial-gradient(ellipse at 50% 18%, rgba(255, 140, 0, 0.72) 0 9px, transparent 10px) 46px 0 / 92px 100% repeat-x,
+        repeating-linear-gradient(90deg, rgba(96, 25, 9, 0.18) 0 1px, transparent 1px 11px, rgba(247, 183, 51, 0.38) 11px 13px, transparent 13px 23px),
+        linear-gradient(90deg, rgba(139, 0, 0, 0.82), rgba(211, 84, 0, 0.92), rgba(247, 183, 51, 0.92), rgba(190, 38, 23, 0.9), rgba(211, 84, 0, 0.92), rgba(139, 0, 0, 0.82));
+    background-blend-mode: normal, normal, screen, screen, multiply, screen, normal, normal;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.72),
+        0 9px 18px rgba(132, 57, 5, 0.14);
+}
+
+section:not(.hero)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    transform: translateY(-50%);
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9) 0 2px, transparent 3px) 23px 0 / 46px 100% repeat-x,
+        radial-gradient(ellipse at 50% 46%, rgba(255, 214, 101, 0.72) 0 4px, transparent 5px) 0 0 / 92px 100% repeat-x,
+        linear-gradient(180deg, rgba(255, 255, 255, 0.34), transparent 42%, rgba(92, 20, 8, 0.2));
+    mix-blend-mode: screen;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 2;
+}
+
 .site-header {
     background:
         linear-gradient(135deg, rgba(63, 22, 9, 0.84), rgba(177, 66, 8, 0.72)),
@@ -245,8 +293,10 @@ section {
     background: white;
     border-radius: 14px;
     padding: 22px;
-    border: 1px solid rgba(179, 71, 0, 0.12);
-    box-shadow: 0 12px 32px rgba(83, 43, 12, 0.11);
+    border: 1px solid rgba(179, 71, 0, 0.16);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 246, 220, 0.82),
+        0 12px 32px rgba(83, 43, 12, 0.11);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     min-width: 0;
 }
@@ -254,7 +304,9 @@ section {
 .card:hover {
     transform: translateY(-4px);
     border-color: rgba(211, 84, 0, 0.26);
-    box-shadow: 0 18px 44px rgba(83, 43, 12, 0.16);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 246, 220, 0.92),
+        0 18px 44px rgba(83, 43, 12, 0.16);
 }
 
 .card h3 {
@@ -1232,10 +1284,28 @@ button:hover,
 }
 
 footer {
+    position: relative;
     background: #2b1a0f;
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 42px 30px 30px;
+    overflow: hidden;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 24px;
+    background:
+        linear-gradient(180deg, rgba(255, 236, 171, 0.9) 0 1px, rgba(139, 0, 0, 0.7) 1px 3px, transparent 3px 20px, rgba(139, 0, 0, 0.7) 20px 22px, rgba(255, 236, 171, 0.9) 22px 23px),
+        radial-gradient(ellipse at 50% 55%, rgba(255, 250, 240, 0.95) 0 4px, rgba(247, 183, 51, 0.86) 5px 6px, transparent 7px) 0 0 / 86px 100% repeat-x,
+        radial-gradient(ellipse at 42% 70%, rgba(247, 183, 51, 0.72) 0 7px, transparent 8px) 0 0 / 86px 100% repeat-x,
+        radial-gradient(ellipse at 58% 70%, rgba(247, 183, 51, 0.72) 0 7px, transparent 8px) 0 0 / 86px 100% repeat-x,
+        linear-gradient(90deg, #8b0000, #d35400, #f7b733, #be2617, #d35400, #8b0000);
+    opacity: 0.9;
 }
 
 @media (max-width: 1180px) {
@@ -1323,6 +1393,23 @@ footer {
 
     section {
         padding: 45px 5%;
+    }
+
+    section:not(.hero)::before {
+        height: 26px;
+        background:
+            linear-gradient(180deg, rgba(255, 246, 220, 0) 0 4px, rgba(255, 236, 171, 0.9) 4px 5px, rgba(139, 0, 0, 0.7) 5px 7px, transparent 7px 20px, rgba(139, 0, 0, 0.62) 20px 22px, rgba(255, 236, 171, 0.86) 22px 23px, rgba(255, 246, 220, 0) 23px 100%),
+            radial-gradient(ellipse at 50% 56%, rgba(255, 250, 240, 0.95) 0 4px, rgba(247, 183, 51, 0.88) 5px 6px, transparent 7px) 0 0 / 68px 100% repeat-x,
+            radial-gradient(ellipse at 42% 62%, rgba(255, 232, 170, 0.76) 0 6px, transparent 7px) 0 0 / 68px 100% repeat-x,
+            radial-gradient(ellipse at 58% 62%, rgba(255, 232, 170, 0.76) 0 6px, transparent 7px) 0 0 / 68px 100% repeat-x,
+            radial-gradient(ellipse at 50% 82%, rgba(190, 38, 23, 0.64) 0 8px, transparent 9px) 0 0 / 68px 100% repeat-x,
+            radial-gradient(ellipse at 50% 18%, rgba(255, 140, 0, 0.68) 0 7px, transparent 8px) 34px 0 / 68px 100% repeat-x,
+            repeating-linear-gradient(90deg, rgba(96, 25, 9, 0.16) 0 1px, transparent 1px 9px, rgba(247, 183, 51, 0.34) 9px 11px, transparent 11px 19px),
+            linear-gradient(90deg, rgba(139, 0, 0, 0.82), rgba(211, 84, 0, 0.92), rgba(247, 183, 51, 0.92), rgba(190, 38, 23, 0.9), rgba(211, 84, 0, 0.92), rgba(139, 0, 0, 0.82));
+    }
+
+    section:not(.hero)::after {
+        height: 26px;
     }
 
     .about-layout {
