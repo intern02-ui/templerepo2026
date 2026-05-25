@@ -5,16 +5,26 @@
     font-family: "Segoe UI", Arial, sans-serif;
 }
 
+:root {
+    --temple-dark-bg:
+        radial-gradient(circle at 18% 20%, rgba(247, 183, 51, 0.16), transparent 34%),
+        linear-gradient(135deg, #0d1118 0%, #17100c 50%, #080b10 100%);
+    --temple-dark-card: rgba(255, 255, 255, 0.075);
+    --temple-dark-card-strong: rgba(255, 255, 255, 0.11);
+    --temple-dark-border: rgba(255, 255, 255, 0.12);
+    --temple-dark-text: rgba(255, 248, 229, 0.76);
+    --temple-dark-heading: #fff4d8;
+    --temple-dark-accent: #ffd87a;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
 body {
-    background:
-        radial-gradient(circle at top left, rgba(255, 224, 130, 0.22), transparent 30%),
-        linear-gradient(180deg, #fff8ed 0%, #fffdf8 48%, #fff8ed 100%);
-    color: #2b1a0f;
+    background: #080b10;
+    color: var(--temple-dark-text);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -32,6 +42,9 @@ section {
 section:not(.hero) {
     position: relative;
     isolation: isolate;
+    overflow: hidden;
+    background: var(--temple-dark-bg);
+    color: var(--temple-dark-text);
 }
 
 section:not(.hero)::before {
@@ -272,12 +285,13 @@ section {
     text-align: center;
     font-size: clamp(27px, 3vw, 34px);
     margin-bottom: 30px;
-    color: #8b0000;
+    color: var(--temple-dark-heading);
     letter-spacing: 0;
+    text-shadow: 0 14px 34px rgba(0, 0, 0, 0.34);
 }
 
 .sub-section-title {
-    color: #8b0000;
+    color: var(--temple-dark-heading);
     margin: 24px 0 16px;
     text-align: center;
     font-size: 24px;
@@ -290,27 +304,29 @@ section {
 }
 
 .card {
-    background: white;
+    background: var(--temple-dark-card);
     border-radius: 14px;
     padding: 22px;
-    border: 1px solid rgba(179, 71, 0, 0.16);
+    border: 1px solid var(--temple-dark-border);
     box-shadow:
-        inset 0 1px 0 rgba(255, 246, 220, 0.82),
-        0 12px 32px rgba(83, 43, 12, 0.11);
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 18px 44px rgba(0, 0, 0, 0.24);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     min-width: 0;
+    color: var(--temple-dark-text);
+    backdrop-filter: blur(18px);
 }
 
 .card:hover {
     transform: translateY(-4px);
-    border-color: rgba(211, 84, 0, 0.26);
+    border-color: rgba(255, 216, 122, 0.28);
     box-shadow:
-        inset 0 1px 0 rgba(255, 246, 220, 0.92),
-        0 18px 44px rgba(83, 43, 12, 0.16);
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        0 24px 54px rgba(0, 0, 0, 0.3);
 }
 
 .card h3 {
-    color: #b34700;
+    color: var(--temple-dark-accent);
     margin-bottom: 10px;
 }
 
@@ -334,11 +350,10 @@ section {
     padding: clamp(24px, 4vw, 42px);
     overflow: hidden;
     border-radius: 24px;
-    border: 1px solid rgba(211, 84, 0, 0.18);
-    background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 247, 224, 0.86)),
-        radial-gradient(circle at 15% 15%, rgba(247, 183, 51, 0.26), transparent 34%);
-    box-shadow: 0 24px 64px rgba(83, 43, 12, 0.15);
+    border: 1px solid var(--temple-dark-border);
+    background: var(--temple-dark-card);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(18px);
 }
 
 .festival-countdown-card::before {
@@ -364,9 +379,9 @@ section {
     margin-bottom: 12px;
     padding: 7px 14px;
     border-radius: 999px;
-    color: #8b2d00;
-    background: rgba(255, 232, 170, 0.66);
-    border: 1px solid rgba(211, 84, 0, 0.16);
+    color: var(--temple-dark-accent);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--temple-dark-border);
     font-size: 12px;
     font-weight: 900;
     letter-spacing: 1.2px;
@@ -374,7 +389,7 @@ section {
 }
 
 .festival-countdown-card h3 {
-    color: #7b1008;
+    color: var(--temple-dark-heading);
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(26px, 4vw, 42px);
     line-height: 1.12;
@@ -384,7 +399,7 @@ section {
 .festival-countdown-card p {
     max-width: 680px;
     margin: 0 auto;
-    color: #5b3823;
+    color: var(--temple-dark-text);
     font-size: clamp(15px, 2vw, 18px);
     font-weight: 650;
 }
@@ -474,10 +489,12 @@ input,
 select,
 textarea {
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 8px;
     font-size: 15px;
     width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    color: #2b1a0f;
 }
 
 button,
@@ -511,39 +528,104 @@ button:hover,
 }
 
 .about-section {
-    background: linear-gradient(180deg, rgba(255, 245, 225, 0.82), rgba(255, 255, 255, 0.8));
+    background: var(--temple-dark-bg);
 }
 
 .about-layout {
     display: grid;
-    grid-template-columns: minmax(280px, 0.95fr) minmax(300px, 1.05fr);
-    gap: 42px;
+    grid-template-columns: minmax(280px, 0.86fr) minmax(300px, 1.14fr);
+    gap: clamp(28px, 5vw, 64px);
     align-items: center;
     max-width: 1180px;
     margin: 0 auto;
 }
 
-.about-media img {
+.about-section .section-title {
+    color: var(--temple-dark-heading);
+    text-shadow: 0 14px 34px rgba(0, 0, 0, 0.34);
+}
+
+.about-media {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+    border-radius: 24px;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.38);
+}
+
+.about-media::before,
+.about-media::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    height: 96px;
+    pointer-events: none;
+}
+
+.about-media::before {
+    top: 0;
+    background: linear-gradient(180deg, #0e1118 0%, rgba(14, 17, 24, 0));
+}
+
+.about-media::after {
+    bottom: 0;
+    background: linear-gradient(0deg, #090b10 0%, rgba(9, 11, 16, 0));
+}
+
+.about-image-track {
+    --about-loop-offset: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    animation: aboutTempleSlideUp 18s linear infinite;
+}
+
+.about-media:hover .about-image-track,
+.about-image-track:hover {
+    animation-play-state: paused;
+}
+
+.about-image-card {
+    flex: 0 0 250px;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #171a21;
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.34);
+}
+
+.about-image-card img {
     width: 100%;
-    min-height: 420px;
-    max-height: 520px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 22px;
-    box-shadow: 0 24px 54px rgba(83, 43, 12, 0.2);
     display: block;
+    transform: scale(1);
+    transition: transform 420ms ease, filter 420ms ease;
+}
+
+.about-image-card:hover img {
+    transform: scale(1.07);
+    filter: saturate(1.08) contrast(1.04);
 }
 
 .about-content {
-    background: rgba(255, 255, 255, 0.74);
-    border: 1px solid rgba(179, 71, 0, 0.14);
+    background: var(--temple-dark-card);
+    border: 1px solid var(--temple-dark-border);
     border-radius: 18px;
     padding: 34px;
-    box-shadow: 0 18px 44px rgba(83, 43, 12, 0.1);
+    box-shadow: 0 22px 54px rgba(0, 0, 0, 0.24);
+    color: var(--temple-dark-text);
+    backdrop-filter: blur(18px);
 }
 
 .eyebrow {
     display: inline-block;
-    color: #b34700;
+    color: var(--temple-dark-accent);
     font-size: 13px;
     font-weight: 800;
     text-transform: uppercase;
@@ -551,10 +633,14 @@ button:hover,
 }
 
 .about-content h3 {
-    color: #7b1008;
+    color: var(--temple-dark-heading);
     font-size: 30px;
     line-height: 1.25;
     margin-bottom: 16px;
+}
+
+.about-content p {
+    color: var(--temple-dark-text);
 }
 
 .about-content p + p {
@@ -569,8 +655,8 @@ button:hover,
 }
 
 .about-highlights div {
-    background: #fff8ed;
-    border: 1px solid rgba(211, 84, 0, 0.16);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--temple-dark-border);
     border-radius: 14px;
     padding: 16px;
 }
@@ -581,21 +667,34 @@ button:hover,
 }
 
 .about-highlights strong {
-    color: #8b0000;
+    color: var(--temple-dark-accent);
     margin-bottom: 4px;
+}
+
+.about-highlights span {
+    color: rgba(255, 248, 229, 0.72);
+}
+
+@keyframes aboutTempleSlideUp {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(calc(-50% - var(--about-loop-offset)));
+    }
 }
 
 .pradhan-section {
     max-width: 1180px;
     margin: 52px auto 0;
     padding: 34px;
-    border: 1px solid rgba(179, 71, 0, 0.14);
+    border: 1px solid var(--temple-dark-border);
     border-radius: 22px;
-    background:
-        linear-gradient(135deg, rgba(255, 243, 205, 0.78), rgba(255, 255, 255, 0.86)),
-        radial-gradient(circle at 10% 20%, rgba(211, 84, 0, 0.08), transparent 26%);
-    box-shadow: 0 20px 48px rgba(83, 43, 12, 0.12);
+    background: var(--temple-dark-card);
+    box-shadow: 0 22px 54px rgba(0, 0, 0, 0.24);
     overflow: hidden;
+    backdrop-filter: blur(18px);
 }
 
 .pradhan-head {
@@ -605,7 +704,7 @@ button:hover,
 }
 
 .pradhan-head h3 {
-    color: #7b1008;
+    color: var(--temple-dark-heading);
     font-size: 30px;
     line-height: 1.25;
     margin-bottom: 10px;
@@ -637,10 +736,10 @@ button:hover,
     gap: 28px;
     align-items: center;
     padding: 26px;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(139, 0, 0, 0.12);
+    background: var(--temple-dark-card-strong);
+    border: 1px solid var(--temple-dark-border);
     border-radius: 20px;
-    box-shadow: 0 14px 34px rgba(83, 43, 12, 0.1);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
     opacity: 0.78;
     transform: scale(0.985);
     transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
@@ -649,7 +748,7 @@ button:hover,
 .pradhan-card.is-active {
     opacity: 1;
     transform: scale(1);
-    border-color: rgba(211, 84, 0, 0.28);
+    border-color: rgba(255, 216, 122, 0.28);
 }
 
 .pradhan-photo-wrap {
@@ -688,9 +787,9 @@ button:hover,
     display: inline-block;
     padding: 7px 12px;
     margin-bottom: 12px;
-    color: #8b0000;
-    background: #fff3cd;
-    border: 1px solid rgba(211, 84, 0, 0.18);
+    color: var(--temple-dark-accent);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--temple-dark-border);
     border-radius: 999px;
     font-size: 13px;
     font-weight: 800;
@@ -698,21 +797,21 @@ button:hover,
 }
 
 .pradhan-info h4 {
-    color: #7b1008;
+    color: var(--temple-dark-heading);
     font-size: 28px;
     margin-bottom: 10px;
 }
 
 .pradhan-info p {
-    color: #3b281b;
+    color: var(--temple-dark-text);
     margin-bottom: 16px;
 }
 
 .pradhan-info blockquote {
     margin: 0;
     padding: 16px 18px;
-    color: #7b1008;
-    background: #fff8ed;
+    color: var(--temple-dark-heading);
+    background: rgba(255, 255, 255, 0.08);
     border-left: 4px solid #d35400;
     border-radius: 12px;
     font-weight: 700;
@@ -723,10 +822,10 @@ button:hover,
     height: 48px;
     padding: 0;
     border-radius: 50%;
-    background: #ffffff;
-    color: #8b0000;
-    border: 1px solid rgba(179, 71, 0, 0.22);
-    box-shadow: 0 12px 28px rgba(83, 43, 12, 0.14);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--temple-dark-accent);
+    border: 1px solid var(--temple-dark-border);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
     font-size: 34px;
     line-height: 1;
 }
@@ -749,7 +848,7 @@ button:hover,
     height: 10px;
     padding: 0;
     border-radius: 50%;
-    background: rgba(139, 0, 0, 0.24);
+    background: rgba(255, 255, 255, 0.24);
     border: none;
     box-shadow: none;
 }
@@ -763,7 +862,7 @@ button:hover,
 .pradhan-dot.is-active {
     width: 28px;
     border-radius: 999px;
-    background: linear-gradient(90deg, #8b0000, #d35400);
+    background: linear-gradient(90deg, #ffd87a, #d35400);
 }
 
 .gallery-shell {
@@ -790,11 +889,11 @@ button:hover,
 }
 
 .gallery-card {
-    background: white;
-    border: 1px solid rgba(179, 71, 0, 0.14);
+    background: var(--temple-dark-card);
+    border: 1px solid var(--temple-dark-border);
     border-radius: 18px;
     padding: 16px;
-    box-shadow: 0 14px 34px rgba(83, 43, 12, 0.12);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
     scroll-snap-align: start;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     min-width: 0;
@@ -802,8 +901,8 @@ button:hover,
 
 .gallery-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(211, 84, 0, 0.32);
-    box-shadow: 0 24px 46px rgba(83, 43, 12, 0.18);
+    border-color: rgba(255, 216, 122, 0.28);
+    box-shadow: 0 24px 54px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-card img {
@@ -821,7 +920,7 @@ button:hover,
 }
 
 .gallery-card h3 {
-    color: #b34700;
+    color: var(--temple-dark-accent);
     margin-bottom: 8px;
 }
 
@@ -837,10 +936,10 @@ button:hover,
     place-items: center;
     font-size: 34px;
     line-height: 1;
-    background: #ffffff;
-    color: #8b0000;
-    border: 1px solid rgba(179, 71, 0, 0.2);
-    box-shadow: 0 12px 28px rgba(83, 43, 12, 0.18);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--temple-dark-accent);
+    border: 1px solid var(--temple-dark-border);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
 }
 
 .carousel-btn:hover {
@@ -857,7 +956,7 @@ button:hover,
 }
 
 .traditions-section {
-    background: linear-gradient(180deg, rgba(255, 250, 241, 0.92), rgba(255, 241, 219, 0.78));
+    background: var(--temple-dark-bg);
 }
 
 .traditions-grid {
@@ -869,20 +968,22 @@ button:hover,
 }
 
 .tradition-card {
-    background: rgba(255, 255, 255, 0.86);
-    border: 1px solid rgba(139, 0, 0, 0.14);
+    background: var(--temple-dark-card);
+    border: 1px solid var(--temple-dark-border);
     border-top: 4px solid #d35400;
     border-radius: 18px;
     padding: 24px;
     min-height: 250px;
-    box-shadow: 0 14px 32px rgba(83, 43, 12, 0.1);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    color: var(--temple-dark-text);
+    backdrop-filter: blur(18px);
 }
 
 .tradition-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(211, 84, 0, 0.34);
-    box-shadow: 0 22px 44px rgba(83, 43, 12, 0.16);
+    border-color: rgba(255, 216, 122, 0.28);
+    box-shadow: 0 24px 54px rgba(0, 0, 0, 0.3);
 }
 
 .tradition-icon {
@@ -892,14 +993,14 @@ button:hover,
     height: 38px;
     padding: 0 12px;
     border-radius: 999px;
-    background: #fff3cd;
-    color: #8b0000;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--temple-dark-accent);
     font-weight: 800;
     margin-bottom: 18px;
 }
 
 .tradition-card h3 {
-    color: #8b0000;
+    color: var(--temple-dark-accent);
     margin-bottom: 10px;
 }
 
@@ -918,10 +1019,12 @@ button:hover,
 .donation-card {
     width: min(100%, 960px);
     padding: clamp(24px, 3vw, 32px);
-    background: #fff;
-    border: 1px solid rgba(179, 71, 0, 0.12);
+    background: var(--temple-dark-card);
+    border: 1px solid var(--temple-dark-border);
     border-radius: 16px;
-    box-shadow: 0 16px 40px rgba(83, 43, 12, 0.12);
+    box-shadow: 0 22px 54px rgba(0, 0, 0, 0.24);
+    color: var(--temple-dark-text);
+    backdrop-filter: blur(18px);
 }
 
 .donation-card h3,
@@ -930,7 +1033,7 @@ button:hover,
 }
 
 .donation-card h3 {
-    color: #b34700;
+    color: var(--temple-dark-accent);
     margin-bottom: 10px;
 }
 
@@ -956,8 +1059,8 @@ button:hover,
     min-height: 315px;
     padding: 24px;
     border-radius: 14px;
-    background: #fffaf2;
-    border: 1px solid rgba(179, 71, 0, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--temple-dark-border);
 }
 
 .donation-form-panel input,
@@ -990,7 +1093,7 @@ button:hover,
     align-items: center;
     gap: 10px;
     margin-bottom: 14px;
-    color: #4f3522;
+    color: var(--temple-dark-text);
     font-weight: 700;
 }
 
@@ -1021,7 +1124,7 @@ button:hover,
     width: min(240px, 100%);
     height: auto;
     aspect-ratio: 1;
-    border: 8px solid white;
+    border: 8px solid rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     object-fit: contain;
 }
@@ -1038,7 +1141,7 @@ button:hover,
 }
 
 .notice {
-    background: #fff3cd;
+    background: rgba(255, 255, 255, 0.08);
     border-left: 5px solid #d35400;
     padding: 14px;
     border-radius: 8px;
@@ -1059,7 +1162,7 @@ button:hover,
 }
 
 .recent-donations-head h3 {
-    color: #8b0000;
+    color: var(--temple-dark-heading);
     font-size: clamp(23px, 2.4vw, 30px);
 }
 
@@ -1077,14 +1180,15 @@ button:hover,
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 14px;
     padding: 18px;
-    background: #ffffff;
-    border: 1px solid rgba(179, 71, 0, 0.12);
+    background: var(--temple-dark-card);
+    border: 1px solid var(--temple-dark-border);
     border-radius: 14px;
-    box-shadow: 0 10px 28px rgba(83, 43, 12, 0.09);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+    color: var(--temple-dark-text);
 }
 
 .donation-item h4 {
-    color: #3a2417;
+    color: var(--temple-dark-heading);
     font-size: 18px;
     margin-bottom: 4px;
 }
@@ -1092,7 +1196,7 @@ button:hover,
 .donation-meta,
 .donation-message,
 .donation-date {
-    color: #6b4a34;
+    color: var(--temple-dark-text);
     font-size: 14px;
 }
 
@@ -1110,9 +1214,9 @@ button:hover,
 
 .donation-amount {
     align-self: center;
-    color: #8b0000;
-    background: #fff3cd;
-    border: 1px solid rgba(211, 84, 0, 0.16);
+    color: var(--temple-dark-accent);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--temple-dark-border);
     border-radius: 999px;
     padding: 8px 12px;
     font-weight: 900;
@@ -1122,9 +1226,9 @@ button:hover,
 .donations-empty {
     padding: 20px;
     text-align: center;
-    color: #6b4a34;
-    background: #fffaf2;
-    border: 1px dashed rgba(179, 71, 0, 0.28);
+    color: var(--temple-dark-text);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px dashed rgba(255, 255, 255, 0.22);
     border-radius: 14px;
     font-weight: 800;
 }
@@ -1217,7 +1321,7 @@ button:hover,
 .status {
     margin-top: 15px;
     font-weight: bold;
-    color: #8b0000;
+    color: var(--temple-dark-accent);
 }
 
 .donation-status {
@@ -1226,15 +1330,15 @@ button:hover,
 }
 
 .donation-status[data-tone="info"] {
-    color: #6b4a34;
+    color: var(--temple-dark-text);
 }
 
 .donation-status[data-tone="success"] {
-    color: #25633f;
+    color: #91e8b5;
 }
 
 .donation-status[data-tone="error"] {
-    color: #8b0000;
+    color: #ffb199;
 }
 
 .progress-wrap {
@@ -1250,7 +1354,7 @@ button:hover,
 
 .progress {
     height: 18px;
-    background: #f1d5b8;
+    background: rgba(255, 255, 255, 0.12);
     border-radius: 20px;
     overflow: hidden;
 }
@@ -1285,7 +1389,7 @@ button:hover,
 
 footer {
     position: relative;
-    background: #2b1a0f;
+    background: var(--temple-dark-bg);
     color: white;
     text-align: center;
     padding: 42px 30px 30px;
@@ -1417,12 +1521,25 @@ footer::before {
         gap: 24px;
     }
 
-    .about-media img {
-        min-height: 280px;
-        max-height: 360px;
+    .about-media {
+        order: 2;
+        height: 420px;
+        border-radius: 18px;
+        padding: 14px;
+    }
+
+    .about-image-card {
+        flex-basis: 220px;
+        border-radius: 14px;
+    }
+
+    .about-image-track {
+        --about-loop-offset: 7px;
+        gap: 14px;
     }
 
     .about-content {
+        order: 1;
         padding: 24px;
     }
 
@@ -1561,6 +1678,15 @@ footer::before {
         margin-bottom: 22px;
     }
 
+    .about-media {
+        height: 360px;
+        padding: 12px;
+    }
+
+    .about-image-card {
+        flex-basis: 200px;
+    }
+
     .card,
     .gallery-card,
     .tradition-card {
@@ -1601,6 +1727,16 @@ footer::before {
     .donation-main {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-image-track {
+        animation: none;
+    }
+
+    .about-image-card img {
+        transition: none;
     }
 }
 

@@ -813,6 +813,14 @@ function initializeLanguage() {
   applyLanguage();
 }
 
+function syncLanguageFromStorage(event) {
+  if (event.key !== "preferredTempleLanguage") return;
+  if (event.newValue !== "hi" && event.newValue !== "en") return;
+  if (event.newValue === currentLang) return;
+  currentLang = event.newValue;
+  applyLanguage();
+}
+
 function initializeMinDates() {
   const today = new Date().toISOString().split("T")[0];
   sevaDate.min = today;
@@ -947,6 +955,7 @@ function initializeActiveNavigation() {
 }
 
 languageBtn.addEventListener("click", toggleLanguage);
+window.addEventListener("storage", syncLanguageFromStorage);
 
 donationAmount.addEventListener("input", updateDonationQR);
 donationPurpose.addEventListener("change", updateDonationQR);

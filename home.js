@@ -11,11 +11,15 @@
 
 const DATA_URL = "temples.json";
 const PAGE_SIZE = 9;
+const FALLBACK_TEMPLE_IMAGE =
+  "https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1200&q=80";
 const FAVORITES_KEY = "templeExplorerFavorites";
 const RECENT_KEY = "templeExplorerRecent";
 const NEW_NOTIF_SEEN_KEY = "templeExplorerNotifiedNew";
 const LIVE_NOTIF_SEEN_KEY = "templeExplorerNotifiedLive";
+const LANGUAGE_KEY = "preferredTempleLanguage";
 
+const languageBtn = document.getElementById("languageBtn");
 const searchInput = document.getElementById("searchInput");
 const clearSearchBtn = document.getElementById("clearSearchBtn");
 const locationFilter = document.getElementById("locationFilter");
@@ -55,9 +59,85 @@ let nearbyCenter = null; // {lat, lng} when enabled
 let festivalMatchedTempleIds = new Set();
 let festivalChipsData = [];
 let notificationsUnread = 0;
+let currentLang = "en";
+
+const HOME_TRANSLATIONS = {
+  "Temple Explorer": "मंदिर एक्सप्लोरर",
+  "Updates": "अपडेट",
+  "Mark read": "पढ़ा हुआ",
+  "Explore": "खोजें",
+  "Featured": "विशेष",
+  "Bookmarks": "बुकमार्क",
+  "Recently Viewed": "हाल में देखे गए",
+  "Temple Explorer Platform": "मंदिर एक्सप्लोरर प्लेटफॉर्म",
+  "Explore Temples Across India": "भारत के मंदिरों को खोजें",
+  "Discover divine places and connect spiritually": "पवित्र स्थान खोजें और आध्यात्मिक रूप से जुड़ें",
+  "Search by temple name, city or state...": "मंदिर, शहर या राज्य से खोजें...",
+  "Clear": "साफ करें",
+  "Temples": "मंदिर",
+  "Suggest Nearby": "पास के मंदिर सुझाएं",
+  "Today's Aarti": "आज की आरती",
+  "Peace • Seva • Darshan": "शांति • सेवा • दर्शन",
+  "Festival Highlights": "त्योहार विशेष",
+  "Explore Temples": "मंदिर खोजें",
+  "Search, filter and open your existing temple detail pages.": "मंदिर खोजें, फिल्टर करें और विवरण पेज खोलें।",
+  "Location": "स्थान",
+  "All locations": "सभी स्थान",
+  "Deity": "देवता",
+  "All deities": "सभी देवता",
+  "Sort": "क्रम",
+  "Popular": "लोकप्रिय",
+  "Latest": "नवीनतम",
+  "Only bookmarks": "केवल बुकमार्क",
+  "Load More": "और दिखाएं",
+  "Featured / Popular Temples": "विशेष / लोकप्रिय मंदिर",
+  "A few trending temples to start your spiritual journey.": "अपनी आध्यात्मिक यात्रा शुरू करने के लिए कुछ लोकप्रिय मंदिर।",
+  "Bookmarked Temples": "बुकमार्क किए गए मंदिर",
+  "Save temples and come back anytime.": "मंदिर सेव करें और कभी भी वापस आएं।",
+  "Quick access to temples you opened.": "आपके खोले गए मंदिरों तक तुरंत पहुंच।",
+  "Designed with a clean spiritual theme (white, saffron, gold).": "साफ आध्यात्मिक थीम के साथ डिजाइन किया गया।",
+  "Back to top": "ऊपर जाएं",
+  "Temple action": "मंदिर क्रिया",
+  "No festival matches found yet.": "अभी कोई त्योहार मिलान नहीं मिला।",
+  "No new updates right now.": "अभी कोई नया अपडेट नहीं है।",
+  "New temples added": "नए मंदिर जोड़े गए",
+  "Live darshan now": "लाइव दर्शन अभी",
+  "new temple listings are available.": "नए मंदिर उपलब्ध हैं।",
+  "temple streams are live.": "मंदिर स्ट्रीम लाइव हैं।",
+  "Bookmark": "बुकमार्क",
+  "Bookmarked": "बुकमार्क किया गया",
+  "Live": "लाइव",
+  "Donate": "दान करें",
+  "View Darshan": "दर्शन देखें",
+  "Popularity": "लोकप्रियता",
+  "popular": "लोकप्रिय",
+  "No temples found for the current filters.": "मौजूदा फिल्टर में कोई मंदिर नहीं मिला।",
+  "No bookmarks yet. Click the bookmark icon on a temple card to save it.": "अभी कोई बुकमार्क नहीं है। मंदिर सेव करने के लिए बुकमार्क आइकन दबाएं।",
+  "No temples viewed yet. Open a temple to see it here.": "अभी कोई मंदिर नहीं देखा गया। मंदिर खोलने के बाद यहां दिखेगा।",
+  "Nearby suggestions enabled": "पास के सुझाव चालू हैं",
+  "Showing": "दिखाए जा रहे हैं",
+  "of": "में से",
+  "Finding...": "खोज रहे हैं...",
+  "Nearby Enabled": "पास के सुझाव चालू",
+  "Listening...": "सुन रहा है...",
+  "Donate •": "दान •",
+  "Live Darshan •": "लाइव दर्शन •",
+  "Failed to load temple data. Please check temples.json.": "मंदिर डेटा लोड नहीं हो सका। कृपया temples.json जांचें।"
+};
 
 function safeText(value) {
   return String(value ?? "").trim();
+}
+
+function translate(text) {
+  const value = safeText(text);
+  if (currentLang === "en") return value;
+  return HOME_TRANSLATIONS[value] || value;
+}
+
+function setTextByLanguage(element, english) {
+  if (!element) return;
+  element.textContent = currentLang === "hi" ? translate(english) : english;
 }
 
 function normalize(value) {
@@ -139,12 +219,84 @@ function escapeHtml(text) {
 }
 
 function renderEmpty(target, message) {
-  target.innerHTML = `<div class="empty">${escapeHtml(message)}</div>`;
+  target.innerHTML = `<div class="empty">${escapeHtml(translate(message))}</div>`;
 }
 
 function escapeHtmlAttr(text) {
   // Attribute-safe HTML string
   return escapeHtml(text).replaceAll("\n", " ");
+}
+
+function updateLanguageButton() {
+  if (!languageBtn) return;
+
+  const labels =
+    currentLang === "hi"
+      ? ["हिन्दी", "/", "अंग्रेजी"]
+      : ["Hindi", "/", "English"];
+  const parts = languageBtn.querySelectorAll("span");
+  if (parts.length >= 3) {
+    parts[0].textContent = labels[0];
+    parts[1].textContent = labels[1];
+    parts[2].textContent = labels[2];
+  }
+  languageBtn.setAttribute(
+    "aria-label",
+    currentLang === "hi" ? "भाषा अंग्रेजी में बदलें" : "Switch language to Hindi"
+  );
+}
+
+function applyStaticLanguage() {
+  document.documentElement.lang = currentLang;
+  document.querySelectorAll("[data-en]").forEach((element) => {
+    const english = element.getAttribute("data-en") || "";
+    const hindi = element.getAttribute("data-hi") || translate(english);
+    element.textContent = currentLang === "hi" ? hindi : english;
+  });
+
+  if (searchInput) {
+    searchInput.placeholder = translate("Search by temple name, city or state...");
+  }
+
+  Array.from(sortSelect?.options || []).forEach((option) => {
+    if (option.value === "az") option.textContent = "A-Z";
+    if (option.value === "popular") option.textContent = translate("Popular");
+    if (option.value === "latest") option.textContent = translate("Latest");
+  });
+
+  updateLanguageButton();
+}
+
+function applyLanguage({ rerender = true } = {}) {
+  applyStaticLanguage();
+  if (!rerender || allTemples.length === 0) return;
+  populateFilters();
+  renderFestivalBanner(allTemples);
+  renderNotifications(allTemples);
+  refreshFeatured();
+  refreshFavoritesSection();
+  refreshRecentSection();
+  refreshExplore();
+}
+
+function initializeLanguage() {
+  const savedLanguage = localStorage.getItem(LANGUAGE_KEY);
+  currentLang = savedLanguage === "hi" ? "hi" : "en";
+  applyLanguage({ rerender: false });
+}
+
+function toggleLanguage() {
+  currentLang = currentLang === "en" ? "hi" : "en";
+  localStorage.setItem(LANGUAGE_KEY, currentLang);
+  applyLanguage();
+}
+
+function syncLanguageFromStorage(event) {
+  if (event.key !== LANGUAGE_KEY) return;
+  if (event.newValue !== "hi" && event.newValue !== "en") return;
+  if (event.newValue === currentLang) return;
+  currentLang = event.newValue;
+  applyLanguage();
 }
 
 function buildLiveHref(temple) {
@@ -251,14 +403,16 @@ function renderFestivalBanner(temples) {
   if (!activeChips.length) {
     if (festivalChips) festivalChips.innerHTML = "";
     if (festivalBanner) {
-      festivalBanner.querySelector(".festival-text").textContent = "No festival matches found yet.";
+      festivalBanner.querySelector(".festival-text").textContent = translate("No festival matches found yet.");
     }
     return;
   }
 
   if (festivalBanner) {
     festivalBanner.querySelector(".festival-text").textContent =
-      "Special moments happening now • Tap a chip to highlight";
+      currentLang === "hi"
+        ? "विशेष अवसर चल रहे हैं • हाइलाइट करने के लिए चिप दबाएं"
+        : "Special moments happening now • Tap a chip to highlight";
   }
 
   festivalChipsData = activeChips;
@@ -297,7 +451,10 @@ function computeNotifications(temples) {
   if (newTemples.length) {
     notifications.push({
       key: "new",
-      title: `New temples added (${newTemples.length})`,
+      title:
+        currentLang === "hi"
+          ? `${translate("New temples added")} (${newTemples.length})`
+          : `New temples added (${newTemples.length})`,
       meta: newTemples
         .slice(0, 3)
         .map((t) => t.name)
@@ -309,7 +466,10 @@ function computeNotifications(temples) {
   if (liveTemples.length) {
     notifications.push({
       key: "live",
-      title: `Live Darshan started (${liveTemples.length})`,
+      title:
+        currentLang === "hi"
+          ? `${translate("Live darshan now")} (${liveTemples.length})`
+          : `Live Darshan started (${liveTemples.length})`,
       meta: liveTemples
         .slice(0, 2)
         .map((t) => t.name)
@@ -333,7 +493,7 @@ function renderNotifications(temples) {
 
   if (!notifications.length) {
     notifList.innerHTML =
-      `<div class="empty">No new updates right now.</div>`;
+      `<div class="empty">${escapeHtml(translate("No new updates right now."))}</div>`;
     return;
   }
 
@@ -348,7 +508,7 @@ function renderNotifications(temples) {
               Array.isArray(n.ids) && n.ids.length
                 ? `<button class="btn btn-ghost" type="button" data-action="notif-mark" data-notif-key="${escapeHtmlAttr(
                     n.key
-                  )}" data-speak="Mark read">Mark read</button>`
+                  )}" data-speak="Mark read">${escapeHtml(translate("Mark read"))}</button>`
                 : ""
             }
           </div>
@@ -384,6 +544,8 @@ function speakText(text) {
 function wireTouchToSpeak() {
   // Speak only when element explicitly opted-in via data-speak.
   document.addEventListener("click", (e) => {
+    if (e.target.closest("button, .btn")) return;
+
     const el = e.target.closest("[data-speak]");
     if (!el) return;
     const text = el.getAttribute("data-speak") || el.textContent;
@@ -410,7 +572,7 @@ function wireVoiceSearch() {
   voiceBtn.addEventListener("click", () => {
     if (listening) return;
     listening = true;
-    voiceBtn.textContent = "Listening...";
+    voiceBtn.textContent = translate("Listening...");
     recognition.start();
   });
 
@@ -420,7 +582,7 @@ function wireVoiceSearch() {
       searchInput.value = transcript;
       nearbyCenter = null;
       nearbyBtn.disabled = false;
-      nearbyBtn.textContent = "Suggest Nearby";
+      setTextByLanguage(nearbyBtn, "Suggest Nearby");
       resetAndRefreshExplore();
     }
   });
@@ -448,7 +610,10 @@ function openQuickActionModal(temple, mode) {
           return `${detailPage}?id=${encodeURIComponent(temple.id)}#live`;
         })();
 
-  modalTitle.textContent = mode === "donate" ? `Donate • ${temple.name}` : `Live Darshan • ${temple.name}`;
+  modalTitle.textContent =
+    mode === "donate"
+      ? `${translate("Donate •")} ${temple.name}`
+      : `${translate("Live Darshan •")} ${temple.name}`;
   modalFrame.src = href;
   modalOverlay.hidden = false;
   modalOverlay.setAttribute("aria-hidden", "false");
@@ -488,30 +653,35 @@ function makeCard(temple, { showBookmark = true } = {}) {
   const primaryHref = isLive ? buildLiveHref(temple) : buildTempleHref(temple);
   const popularity = getPopularityPercent(temple);
   const showFestival = festivalMatchedTempleIds.has(temple.id);
+  const statusOverlay = isLive
+    ? `<div class="card-topline">
+          <div class="card-badges">
+            <span class="live-badge" data-speak="Live"><span class="live-dot" aria-hidden="true"></span> ${escapeHtml(translate("Live")).toUpperCase()}</span>
+          </div>
+        </div>`
+    : "";
 
   const bookmarkBtn = showBookmark
-    ? `<button class="btn btn-ghost btn-icon" type="button" data-action="toggle-fav" data-id="${escapeHtml(
+    ? `<button class="bookmark-btn${isFav ? " is-bookmarked" : ""}" type="button" data-action="toggle-fav" data-id="${escapeHtml(
         temple.id
-      )}" aria-label="${isFav ? "Remove bookmark" : "Add bookmark"}" title="${
-        isFav ? "Bookmarked" : "Bookmark"
-      }" data-speak="${escapeHtmlAttr(isFav ? "Bookmarked" : "Bookmark")}">${isFav ? "♥" : "♡"}</button>`
+      )}" aria-label="${escapeHtmlAttr(translate(isFav ? "Bookmarked" : "Bookmark"))}" title="${
+        escapeHtmlAttr(translate(isFav ? "Bookmarked" : "Bookmark"))
+      }" data-speak="${escapeHtmlAttr(isFav ? "Bookmarked" : "Bookmark")}">&#128278;</button>`
     : "";
 
   return `
     <article class="card${showFestival ? " festival-highlight" : ""}" data-id="${escapeHtml(
     temple.id
   )}">
-      <div class="card-topline" style="padding: 12px 14px 0;">
-        <div style="display:flex; gap:10px; align-items:center;">
-          ${isLive ? `<span class="live-badge" data-speak="Live"><span class="live-dot" aria-hidden="true"></span> LIVE</span>` : ""}
-          ${showFestival ? `<span class="pill" style="border-color: rgba(243, 156, 18, 0.55); background: rgba(243, 156, 18, 0.14);" data-speak="Festival highlight">Festival</span>` : ""}
-        </div>
-        ${showFestival ? `<span style="font-size:12px; font-weight:900; color: #7a2c00;" data-speak="Festival match">✨</span>` : ""}
+      <div class="card-media-wrap">
+        <a class="card-media" href="${escapeHtml(primaryHref)}" data-action="open">
+          <img src="${escapeHtml(temple.image || FALLBACK_TEMPLE_IMAGE)}" alt="${escapeHtml(
+            temple.name
+          )}" onerror="this.onerror=null;this.src='${escapeHtml(FALLBACK_TEMPLE_IMAGE)}';">
+        </a>
+        ${statusOverlay}
+        ${bookmarkBtn}
       </div>
-
-      <a class="card-media" href="${escapeHtml(primaryHref)}" data-action="open">
-        <img src="${escapeHtml(temple.image)}" alt="${escapeHtml(temple.name)}">
-      </a>
       <div class="card-body">
         <div class="card-title">
           <h3 data-speak="${escapeHtmlAttr(temple.name)}">${escapeHtml(temple.name)}</h3>
@@ -524,7 +694,7 @@ function makeCard(temple, { showBookmark = true } = {}) {
         )}</div>
         <div class="popularity" data-speak="Popularity ${popularity} percent">
           <div class="stars" aria-label="Rating">${renderStars(temple.rating)}</div>
-          <div><strong>${popularity}%</strong> popular</div>
+          <div><strong>${popularity}%</strong> ${escapeHtml(translate("popular"))}</div>
         </div>
         <p class="card-desc" data-speak="${escapeHtmlAttr(
           safeText(temple.description || "").slice(0, 120)
@@ -533,14 +703,13 @@ function makeCard(temple, { showBookmark = true } = {}) {
           <div class="quick-actions" data-speak="Quick actions">
             <button class="btn btn-primary" type="button" data-action="quick-donate" data-id="${escapeHtml(
               temple.id
-            )}" data-speak="Donate">Donate</button>
+            )}" data-speak="Donate">${escapeHtml(translate("Donate"))}</button>
             <button class="btn btn-ghost" type="button" data-action="quick-darshan" data-id="${escapeHtml(
               temple.id
-            )}" data-speak="View Darshan">View Darshan</button>
+            )}" data-speak="View Darshan">${escapeHtml(translate("View Darshan"))}</button>
           </div>
 
-          <a class="btn btn-primary" href="${escapeHtml(primaryHref)}" data-action="open" data-speak="Explore">Explore</a>
-          ${bookmarkBtn}
+          <a class="btn btn-primary" href="${escapeHtml(primaryHref)}" data-action="open" data-speak="Explore">${escapeHtml(translate("Explore"))}</a>
         </div>
       </div>
     </article>
@@ -633,7 +802,7 @@ function refreshFavoritesSection() {
   const favs = getFavorites();
   const list = allTemples.filter((t) => favs.has(t.id));
   if (!list.length) {
-    renderEmpty(favoritesGrid, "No bookmarks yet. Click ♡ on a temple card to save it.");
+    renderEmpty(favoritesGrid, "No bookmarks yet. Click the bookmark icon on a temple card to save it.");
     return;
   }
   renderGrid(favoritesGrid, list);
@@ -655,9 +824,9 @@ function refreshExplore() {
   const showing = filtered.slice(0, viewLimit);
 
   if (nearbyCenter) {
-    resultsMeta.textContent = `Nearby suggestions enabled • Showing ${showing.length} of ${filtered.length}`;
+    resultsMeta.textContent = `${translate("Nearby suggestions enabled")} • ${translate("Showing")} ${showing.length} ${translate("of")} ${filtered.length}`;
   } else {
-    resultsMeta.textContent = `Showing ${showing.length} of ${filtered.length}`;
+    resultsMeta.textContent = `${translate("Showing")} ${showing.length} ${translate("of")} ${filtered.length}`;
   }
 
   renderGrid(templeGrid, showing);
@@ -674,11 +843,11 @@ function populateFilters() {
   const locations = getUniqueSorted(allTemples.map(locationKey));
   const deities = getUniqueSorted(allTemples.map((t) => safeText(t.deity)));
 
-  locationFilter.innerHTML = `<option value="">All locations</option>${locations
+  locationFilter.innerHTML = `<option value="">${escapeHtml(translate("All locations"))}</option>${locations
     .map((loc) => `<option value="${escapeHtml(loc)}">${escapeHtml(loc)}</option>`)
     .join("")}`;
 
-  deityFilter.innerHTML = `<option value="">All deities</option>${deities
+  deityFilter.innerHTML = `<option value="">${escapeHtml(translate("All deities"))}</option>${deities
     .map((d) => `<option value="${escapeHtml(d)}">${escapeHtml(d)}</option>`)
     .join("")}`;
 }
@@ -759,18 +928,18 @@ async function enableNearbySuggestions() {
   }
 
   nearbyBtn.disabled = true;
-  nearbyBtn.textContent = "Finding...";
+  nearbyBtn.textContent = translate("Finding...");
 
   navigator.geolocation.getCurrentPosition(
     (pos) => {
       nearbyCenter = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-      nearbyBtn.textContent = "Nearby Enabled";
+      nearbyBtn.textContent = translate("Nearby Enabled");
       resetAndRefreshExplore();
     },
     () => {
       nearbyCenter = null;
       nearbyBtn.disabled = false;
-      nearbyBtn.textContent = "Suggest Nearby";
+      setTextByLanguage(nearbyBtn, "Suggest Nearby");
       alert("Location permission denied. Nearby suggestions are disabled.");
     },
     { enableHighAccuracy: true, timeout: 8000 }
@@ -809,10 +978,15 @@ async function loadData() {
 }
 
 function wireEvents() {
+  if (languageBtn) {
+    languageBtn.addEventListener("click", toggleLanguage);
+  }
+  window.addEventListener("storage", syncLanguageFromStorage);
+
   searchInput.addEventListener("input", () => {
     nearbyCenter = null;
     nearbyBtn.disabled = false;
-    nearbyBtn.textContent = "Suggest Nearby";
+    setTextByLanguage(nearbyBtn, "Suggest Nearby");
     resetAndRefreshExplore();
   });
 
@@ -898,6 +1072,7 @@ function wireEvents() {
 
 async function start() {
   try {
+    initializeLanguage();
     await loadData();
     populateFilters();
     renderFestivalBanner(allTemples);
