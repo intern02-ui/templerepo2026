@@ -1,261 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Temple Explorer • Explore Temples Across India</title>
-    <link rel="stylesheet" href="home.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="container header-inner">
-        <a class="brand" href="./index.html" aria-label="Temple Explorer Home">
-          <span class="brand-mark" aria-hidden="true">🛕</span>
-          <span class="brand-text" data-en="Temple Explorer" data-hi="मंदिर एक्सप्लोरर">Temple Explorer</span>
-        </a>
 
-        <div class="header-actions">
-          <button id="languageBtn" class="lang-btn" type="button" aria-label="Switch language">
-            <span>Hindi</span>
-            <span aria-hidden="true">/</span>
-            <span>English</span>
-          </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-          <button
-            id="notifBtn"
-            class="btn btn-ghost btn-icon"
-            type="button"
-            aria-label="Notifications"
-            data-speak="Notifications"
-          >
-            🔔
-          </button>
-          <span id="notifCount" class="notif-count" aria-hidden="true">0</span>
+  <title>Temple Explorer</title>
 
-          <div id="notifMenu" class="notif-menu" role="menu" aria-label="Notifications dropdown" hidden>
-            <div class="notif-menu-head">
-              <div class="notif-menu-title" data-en="Updates" data-hi="अपडेट">Updates</div>
-              <button id="notifClearBtn" class="notif-clear" type="button" data-speak="Mark all as read" data-en="Mark read" data-hi="पढ़ा हुआ">
-                Mark read
-              </button>
-            </div>
-            <div id="notifList" class="notif-list"></div>
+  <meta name="description"
+  content="Explore famous temples and live darshan online">
+
+  <meta name="keywords"
+  content="temples, live darshan, hindu temples, spiritual places">
+
+  <meta name="author" content="Temple Explorer">
+
+  <link rel="stylesheet" href="home.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html" aria-label="Temple Explorer Home">
+        <span class="brand-mark" aria-hidden="true">🛕</span>
+        <span class="brand-text" data-en="Temple Explorer" data-hi="मंदिर एक्सप्लोरर">Temple Explorer</span>
+      </a>
+
+      <div class="header-actions">
+        <button id="languageBtn" class="lang-btn" type="button" aria-label="Switch language">
+          <span>Hindi</span>
+          <span aria-hidden="true">/</span>
+          <span>English</span>
+        </button>
+
+        <button id="notifBtn" class="btn btn-ghost btn-icon" type="button" aria-label="Notifications"
+          data-speak="Notifications">
+          🔔
+        </button>
+        <span id="notifCount" class="notif-count" aria-hidden="true">0</span>
+
+        <div id="notifMenu" class="notif-menu" role="menu" aria-label="Notifications dropdown" hidden>
+          <div class="notif-menu-head">
+            <div class="notif-menu-title" data-en="Updates" data-hi="अपडेट">Updates</div>
+            <button id="notifClearBtn" class="notif-clear" type="button" data-speak="Mark all as read"
+              data-en="Mark read" data-hi="पढ़ा हुआ">
+              Mark read
+            </button>
           </div>
+          <div id="notifList" class="notif-list"></div>
         </div>
-
-        <nav class="nav" aria-label="Primary navigation">
-          <a class="nav-link" href="#explore" data-speak="Explore" data-en="Explore" data-hi="खोजें">Explore</a>
-          <a class="nav-link" href="#featured" data-speak="Featured" data-en="Featured" data-hi="विशेष">Featured</a>
-          <a class="nav-link" href="#favorites" data-speak="Bookmarks" data-en="Bookmarks" data-hi="बुकमार्क">Bookmarks</a>
-          <a class="nav-link" href="#recent" data-speak="Recently Viewed" data-en="Recently Viewed" data-hi="हाल में देखे गए">Recently Viewed</a>
-        </nav>
       </div>
-    </header>
 
-    <main>
-      <section class="hero" id="top">
-        <div class="container hero-inner">
-          <div class="hero-copy">
-            <div class="badge" data-en="Temple Explorer Platform" data-hi="मंदिर एक्सप्लोरर प्लेटफॉर्म">Temple Explorer Platform</div>
-            <h1 data-speak="Explore Temples Across India" data-en="Explore Temples Across India" data-hi="भारत के मंदिरों को खोजें">Explore Temples Across India</h1>
-            <p class="subtitle" data-speak="Discover divine places and connect spiritually" data-en="Discover divine places and connect spiritually" data-hi="पवित्र स्थान खोजें और आध्यात्मिक रूप से जुड़ें">Discover divine places and connect spiritually</p>
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav-link" href="#explore" data-speak="Explore" data-en="Explore" data-hi="खोजें">Explore</a>
+        <a class="nav-link" href="#featured" data-speak="Featured" data-en="Featured" data-hi="विशेष">Featured</a>
+        <a class="nav-link" href="#favorites" data-speak="Bookmarks" data-en="Bookmarks"
+          data-hi="बुकमार्क">Bookmarks</a>
+        <a class="nav-link" href="#recent" data-speak="Recently Viewed" data-en="Recently Viewed"
+          data-hi="हाल में देखे गए">Recently Viewed</a>
+      </nav>
+    </div>
+  </header>
 
-            <div class="search-wrap" role="search" aria-label="Search temples">
-              <input
-                id="searchInput"
-                class="search-input"
-                type="search"
-                placeholder="Search by temple name, city or state..."
-                autocomplete="off"
-              />
-              <button
-                id="voiceBtn"
-                class="btn btn-ghost btn-icon"
-                type="button"
-                aria-label="Voice search"
-                title="Voice search"
-                data-speak="Voice search"
-              >
-                🎤
-              </button>
-              <button
-                id="clearSearchBtn"
-                class="btn btn-ghost"
-                type="button"
-                data-speak="Clear"
-                data-en="Clear"
-                data-hi="साफ करें"
-              >
-                Clear
-              </button>
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="badge" data-en="Temple Explorer Platform" data-hi="मंदिर एक्सप्लोरर प्लेटफॉर्म">Temple Explorer
+            Platform</div>
+          <h1 data-speak="Explore Temples Across India" data-en="Explore Temples Across India"
+            data-hi="भारत के मंदिरों को खोजें">Explore Temples Across India</h1>
+          <p class="subtitle" data-speak="Discover divine places and connect spiritually"
+            data-en="Discover divine places and connect spiritually"
+            data-hi="पवित्र स्थान खोजें और आध्यात्मिक रूप से जुड़ें">Discover divine places and connect spiritually</p>
+
+          <div class="search-wrap" role="search" aria-label="Search temples">
+            <input id="searchInput" class="search-input" type="search"
+              placeholder="Search by temple name, city or state..." autocomplete="off" />
+            <button id="voiceBtn" class="btn btn-ghost btn-icon" type="button" aria-label="Voice search"
+              title="Voice search" data-speak="Voice search">
+              🎤
+            </button>
+            <button id="clearSearchBtn" class="btn btn-ghost" type="button" data-speak="Clear" data-en="Clear"
+              data-hi="साफ करें">
+              Clear
+            </button>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-chip">
+              <span class="meta-key" data-en="Temples" data-hi="मंदिर">Temples</span>
+              <span id="templeCount" class="meta-value">—</span>
             </div>
-
-            <div class="hero-meta">
-              <div class="meta-chip">
-                <span class="meta-key" data-en="Temples" data-hi="मंदिर">Temples</span>
-                <span id="templeCount" class="meta-value">—</span>
-              </div>
-              <div class="meta-chip">
-                <span class="meta-key" data-en="Bookmarks" data-hi="बुकमार्क">Bookmarks</span>
-                <span id="favoriteCount" class="meta-value">—</span>
-              </div>
-              <button
-                id="nearbyBtn"
-                class="btn btn-primary"
-                type="button"
-                data-speak="Suggest Nearby"
-                data-en="Suggest Nearby"
-                data-hi="पास के मंदिर सुझाएं"
-              >
-                Suggest Nearby
-              </button>
+            <div class="meta-chip">
+              <span class="meta-key" data-en="Bookmarks" data-hi="बुकमार्क">Bookmarks</span>
+              <span id="favoriteCount" class="meta-value">—</span>
             </div>
-          </div>
-
-          <div class="hero-art" aria-hidden="true">
-            <div class="art-card">
-              <div class="art-title">Today’s Aarti</div>
-              <div class="art-line"></div>
-              <div class="art-line short"></div>
-              <div class="art-kicker">Peace • Seva • Darshan</div>
-            </div>
-            <div class="art-glow"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="festival-banner-wrap" aria-label="Festival highlights">
-        <div class="container festival-banner" id="festivalBanner" data-speak="Festival highlights">
-          <div class="festival-left">
-            <div class="festival-kicker" data-en="Festival Highlights" data-hi="त्योहार विशेष">Festival Highlights</div>
-            <div class="festival-text">Loading festivals...</div>
-          </div>
-          <div class="festival-chips" id="festivalChips"></div>
-        </div>
-      </section>
-
-      <section class="section" id="explore">
-        <div class="container section-head">
-          <h2 class="section-title" data-speak="Explore Temples" data-en="Explore Temples" data-hi="मंदिर खोजें">Explore Temples</h2>
-          <p class="section-subtitle" data-en="Search, filter and open your existing temple detail pages." data-hi="मंदिर खोजें, फिल्टर करें और विवरण पेज खोलें।">
-            Search, filter and open your existing temple detail pages.
-          </p>
-        </div>
-
-        <div class="container controls" aria-label="Search and filter controls">
-          <div class="control">
-            <label for="locationFilter" data-en="Location" data-hi="स्थान">Location</label>
-            <select id="locationFilter">
-              <option value="">All locations</option>
-            </select>
-          </div>
-
-          <div class="control">
-            <label for="deityFilter" data-en="Deity" data-hi="देवता">Deity</label>
-            <select id="deityFilter">
-              <option value="">All deities</option>
-            </select>
-          </div>
-
-          <div class="control">
-            <label for="sortSelect" data-en="Sort" data-hi="क्रम">Sort</label>
-            <select id="sortSelect">
-              <option value="az">A–Z</option>
-              <option value="popular">Popular</option>
-              <option value="latest">Latest</option>
-            </select>
-          </div>
-
-          <div class="control control-inline">
-            <label class="checkbox">
-              <input id="onlyFavoritesToggle" type="checkbox" />
-              <span data-en="Only bookmarks" data-hi="केवल बुकमार्क">Only bookmarks</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="container">
-          <div id="resultsMeta" class="results-meta" aria-live="polite"></div>
-          <div id="templeGrid" class="grid" aria-label="Temple listing"></div>
-
-          <div class="load-more-wrap">
-            <button
-              id="loadMoreBtn"
-              class="btn btn-primary"
-              type="button"
-              data-speak="Load More"
-              data-en="Load More"
-              data-hi="और दिखाएं"
-            >
-              Load More
+            <button id="nearbyBtn" class="btn btn-primary" type="button" data-speak="Suggest Nearby"
+              data-en="Suggest Nearby" data-hi="पास के मंदिर सुझाएं">
+              Suggest Nearby
             </button>
           </div>
         </div>
-      </section>
 
-      <section class="section alt" id="featured">
-        <div class="container section-head">
-          <h2 class="section-title" data-speak="Featured / Popular Temples" data-en="Featured / Popular Temples" data-hi="विशेष / लोकप्रिय मंदिर">Featured / Popular Temples</h2>
-          <p class="section-subtitle" data-en="A few trending temples to start your spiritual journey." data-hi="अपनी आध्यात्मिक यात्रा शुरू करने के लिए कुछ लोकप्रिय मंदिर।">
-            A few trending temples to start your spiritual journey.
-          </p>
-        </div>
-
-        <div class="container">
-          <div id="featuredGrid" class="grid" aria-label="Featured temples"></div>
-        </div>
-      </section>
-
-      <section class="section" id="favorites">
-        <div class="container section-head">
-          <h2 class="section-title" data-speak="Bookmarked Temples" data-en="Bookmarked Temples" data-hi="बुकमार्क किए गए मंदिर">Bookmarked Temples</h2>
-          <p class="section-subtitle" data-en="Save temples and come back anytime." data-hi="मंदिर सेव करें और कभी भी वापस आएं।">Save temples and come back anytime.</p>
-        </div>
-        <div class="container">
-          <div id="favoritesGrid" class="grid" aria-label="Favorite temples"></div>
-        </div>
-      </section>
-
-      <section class="section alt" id="recent">
-        <div class="container section-head">
-          <h2 class="section-title" data-speak="Recently Viewed" data-en="Recently Viewed" data-hi="हाल में देखे गए">Recently Viewed</h2>
-          <p class="section-subtitle" data-en="Quick access to temples you opened." data-hi="आपके खोले गए मंदिरों तक तुरंत पहुंच।">Quick access to temples you opened.</p>
-        </div>
-        <div class="container">
-          <div id="recentGrid" class="grid" aria-label="Recently viewed temples"></div>
-        </div>
-      </section>
-
-      <footer class="footer">
-        <div class="container footer-inner">
-          <div class="footer-left">
-            <div class="footer-brand">
-              <span aria-hidden="true">🛕</span> <span data-en="Temple Explorer" data-hi="मंदिर एक्सप्लोरर">Temple Explorer</span>
-            </div>
-            <div class="footer-note">
-              <span data-en="Designed with a clean spiritual theme (white, saffron, gold)." data-hi="साफ आध्यात्मिक थीम के साथ डिजाइन किया गया।">Designed with a clean spiritual theme (white, saffron, gold).</span>
-            </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-card">
+            <div class="art-title">Today’s Aarti</div>
+            <div class="art-line"></div>
+            <div class="art-line short"></div>
+            <div class="art-kicker">Peace • Seva • Darshan</div>
           </div>
-          <div class="footer-right">
-            <a class="footer-link" href="#top" data-en="Back to top" data-hi="ऊपर जाएं">Back to top</a>
-          </div>
+          <div class="art-glow"></div>
         </div>
-      </footer>
-    </main>
+      </div>
+    </section>
 
-    <div id="modalOverlay" class="modal-overlay" hidden aria-hidden="true">
-      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-header">
-          <div id="modalTitle" class="modal-title" data-speak="Temple action" data-en="Temple action" data-hi="मंदिर क्रिया">Temple action</div>
-          <button id="modalCloseBtn" class="btn btn-ghost btn-icon" type="button" aria-label="Close" data-speak="Close">
-            ✕
+    <section class="festival-banner-wrap" aria-label="Festival highlights">
+      <div class="container festival-banner" id="festivalBanner" data-speak="Festival highlights">
+        <div class="festival-left">
+          <div class="festival-kicker" data-en="Festival Highlights" data-hi="त्योहार विशेष">Festival Highlights</div>
+          <div class="festival-text">Loading festivals...</div>
+        </div>
+        <div class="festival-chips" id="festivalChips"></div>
+      </div>
+    </section>
+
+    <section class="section" id="explore">
+      <div class="container section-head">
+        <h2 class="section-title" data-speak="Explore Temples" data-en="Explore Temples" data-hi="मंदिर खोजें">Explore
+          Temples</h2>
+        <p class="section-subtitle" data-en="Search, filter and open your existing temple detail pages."
+          data-hi="मंदिर खोजें, फिल्टर करें और विवरण पेज खोलें।">
+          Search, filter and open your existing temple detail pages.
+        </p>
+      </div>
+
+      <div class="container controls" aria-label="Search and filter controls">
+        <div class="control">
+          <label for="locationFilter" data-en="Location" data-hi="स्थान">Location</label>
+          <select id="locationFilter">
+            <option value="">All locations</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="deityFilter" data-en="Deity" data-hi="देवता">Deity</label>
+          <select id="deityFilter">
+            <option value="">All deities</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="sortSelect" data-en="Sort" data-hi="क्रम">Sort</label>
+          <select id="sortSelect">
+            <option value="az">A–Z</option>
+            <option value="popular">Popular</option>
+            <option value="latest">Latest</option>
+          </select>
+        </div>
+
+        <div class="control control-inline">
+          <label class="checkbox">
+            <input id="onlyFavoritesToggle" type="checkbox" />
+            <span data-en="Only bookmarks" data-hi="केवल बुकमार्क">Only bookmarks</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="container">
+        <div id="resultsMeta" class="results-meta" aria-live="polite"></div>
+        <div id="templeGrid" class="grid" aria-label="Temple listing"></div>
+
+        <div class="load-more-wrap">
+          <button id="loadMoreBtn" class="btn btn-primary" type="button" data-speak="Load More" data-en="Load More"
+            data-hi="और दिखाएं">
+            Load More
           </button>
         </div>
-        <iframe id="modalFrame" class="modal-frame" title="Temple action content"></iframe>
       </div>
+    </section>
+
+    <section class="section alt" id="featured">
+      <div class="container section-head">
+        <h2 class="section-title" data-speak="Featured / Popular Temples" data-en="Featured / Popular Temples"
+          data-hi="विशेष / लोकप्रिय मंदिर">Featured / Popular Temples</h2>
+        <p class="section-subtitle" data-en="A few trending temples to start your spiritual journey."
+          data-hi="अपनी आध्यात्मिक यात्रा शुरू करने के लिए कुछ लोकप्रिय मंदिर।">
+          A few trending temples to start your spiritual journey.
+        </p>
+      </div>
+
+      <div class="container">
+        <div id="featuredGrid" class="grid" aria-label="Featured temples"></div>
+      </div>
+    </section>
+
+    <section class="section" id="favorites">
+      <div class="container section-head">
+        <h2 class="section-title" data-speak="Bookmarked Temples" data-en="Bookmarked Temples"
+          data-hi="बुकमार्क किए गए मंदिर">Bookmarked Temples</h2>
+        <p class="section-subtitle" data-en="Save temples and come back anytime."
+          data-hi="मंदिर सेव करें और कभी भी वापस आएं।">Save temples and come back anytime.</p>
+      </div>
+      <div class="container">
+        <div id="favoritesGrid" class="grid" aria-label="Favorite temples"></div>
+      </div>
+    </section>
+
+    <section class="section alt" id="recent">
+      <div class="container section-head">
+        <h2 class="section-title" data-speak="Recently Viewed" data-en="Recently Viewed" data-hi="हाल में देखे गए">
+          Recently Viewed</h2>
+        <p class="section-subtitle" data-en="Quick access to temples you opened."
+          data-hi="आपके खोले गए मंदिरों तक तुरंत पहुंच।">Quick access to temples you opened.</p>
+      </div>
+      <div class="container">
+        <div id="recentGrid" class="grid" aria-label="Recently viewed temples"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="footer-brand">
+            <span aria-hidden="true">🛕</span> <span data-en="Temple Explorer" data-hi="मंदिर एक्सप्लोरर">Temple
+              Explorer</span>
+          </div>
+          <div class="footer-note">
+            <span data-en="Designed with a clean spiritual theme (white, saffron, gold)."
+              data-hi="साफ आध्यात्मिक थीम के साथ डिजाइन किया गया।">Designed with a clean spiritual theme (white,
+              saffron, gold).</span>
+          </div>
+        </div>
+        <div class="footer-right">
+          <a class="footer-link" href="#top" data-en="Back to top" data-hi="ऊपर जाएं">Back to top</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div id="modalOverlay" class="modal-overlay" hidden aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div id="modalTitle" class="modal-title" data-speak="Temple action" data-en="Temple action"
+          data-hi="मंदिर क्रिया">Temple action</div>
+        <button id="modalCloseBtn" class="btn btn-ghost btn-icon" type="button" aria-label="Close" data-speak="Close">
+          ✕
+        </button>
+      </div>
+      <iframe id="modalFrame" class="modal-frame" title="Temple action content"></iframe>
     </div>
+  </div>
 
-    <script src="home.js"></script>
-  </body>
+  <script src="home.js"></script>
+</body>
+
 </html>
-
